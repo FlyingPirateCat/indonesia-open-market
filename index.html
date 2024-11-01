@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Indonesia Open Market</title>
 
     <!-- Fonts -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,19 +22,92 @@
   <body>
     <!-- Navbar start -->
     <nav class="navbar">
-      <a href="#" class="navbar-logo">Indonesia<span>OpenMarket</span> </a>
+      <a href="#" class="navbar-logo"
+        >Indonesia<span style="color: var(--primary)">OpenMarket</span>
+      </a>
 
       <div class="navbar-nav">
-        <a href="#home" onclick="displaychange(1,0,0,0)">Beranda</a>
-        <a href="#market" onclick="displaychange(0,0,1,0)">Sektor Market</a>
-        <a href="#about" onclick="displaychange(0,1,0,0)">Tentang Kami</a>
-        <a href="#contact" onclick="displaychange(0,0,0,1)">Kontak</a>
+        <a href="#home" onclick="displaychange(1,0,0,0)">
+          <span lang="id">Beranda</span>
+          <span lang="en">Home</span>
+          <span lang="cn">首页</span>
+          <span lang="sa">الصفحة الرئيسية</span>
+        </a>
+        <a href="#market" onclick="displaychange(0,0,1,0)">
+          <span lang="id">Sektor Market</span>
+          <span lang="en">Market Sector</span>
+          <span lang="cn">市场部门</span>
+          <span lang="sa">قطاع السوق</span>
+        </a>
+        <a href="#about" onclick="displaychange(0,1,0,0)">
+          <span lang="id">Tentang Kami</span>
+          <span lang="en">About Us</span>
+          <span lang="cn">关于我们</span>
+          <span lang="sa">معلومات عنا</span>
+        </a>
+        <a href="#contact" onclick="displaychange(0,0,0,1)">
+          <span lang="id">Kontak</span>
+          <span lang="en">Contact Us</span>
+          <span lang="cn">联系我们</span>
+          <span lang="sa">اتصل بنا</span>
+        </a>
       </div>
 
       <div class="navbar-extra">
+        <a
+          href="#"
+          onclick="document.getElementById('form-lang-switch').style.display ='inline-block';"
+        >
+          <span lang="id">
+            <img
+              src="img/flag/id.png"
+              width="30px"
+              style="align-items: center; margin-bottom: -3px"
+            />
+          </span>
+          <span lang="en">
+            <img
+              src="img/flag/usa.png"
+              width="30px"
+              style="align-items: center; margin-bottom: -3px"
+            />
+          </span>
+
+          <span lang="cn">
+            <img
+              src="img/flag/cn.png"
+              width="30px"
+              style="align-items: center; margin-bottom: -3px"
+            />
+          </span>
+
+          <span lang="sa">
+            <img
+              src="img/flag/sa.png"
+              width="30px"
+              style="align-items: center; margin-bottom: -3px"
+            />
+          </span>
+        </a>
+        <form
+          id="form-lang-switch"
+          style="display: none; position: relative; bottom: 0.5rem"
+        >
+          <select id="lang-switch" onchange="changelanguage(this.value)">
+            <option value="id" selected>🇮🇩 Indonesia</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="cn">🇨🇳 中文</option>
+            <option value="sa">🇸🇦 اللغة العربية</option>
+          </select>
+        </form>
+
         <a href="#" id="search"><i data-feather="search"></i></a>
-        <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
-        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        <a href="#" id="shopping-cart" style="display: none"
+          ><i data-feather="shopping-cart"></i
+        ></a>
+        <a href="#" id="hamburger-menu" style="display: none">
+          <i data-feather="menu"></i>
+        </a>
       </div>
     </nav>
     <!-- Navbar end -->
@@ -43,41 +115,113 @@
     <!-- Hero Section Start-->
     <section class="hero" id="home">
       <main class="content">
-        <h1>Open <span>Market</span></h1>
-        <p>
-          Indonesia memiliki potensi besar di pasar global berkat kekayaan
-          sumber daya alam yang melimpah, seperti minyak, gas, dan hasil
-          pertanian. Indonesia Open Market dapat menjadi solusi efektif untuk
-          memanfaatkan potensi ini melalui perdagangan elektronik dengan
-          meningkatkan akses ke pasar internasional.
+        <h1>Open <span style="color: var(--primary)">Market</span></h1>
+        <p id="opening">
+          <span lang="id">
+            Indonesia memiliki potensi besar di pasar global berkat kekayaan
+            sumber daya alam yang melimpah, seperti minyak, gas, dan hasil
+            pertanian. Indonesia Open Market dapat menjadi solusi efektif untuk
+            memanfaatkan potensi ini melalui perdagangan elektronik dengan
+            meningkatkan akses ke pasar internasional.</span
+          >
+          <span lang="en">
+            Indonesia has great potential in the global market due to its
+            abundant natural resources, such as oil, gas, and agricultural
+            products. Indonesia Open Market can be an effective solution to
+            leverage this potential through e-commerce by increasing access to
+            international markets.
+          </span>
+          <span lang="cn">
+            印度尼西亚拥有丰富的自然资源，如石油、天然气和农产品，在全球市场上拥有巨大潜力。印度尼西亚开放市场可以通过电子商务，增加进入国际市场的渠道，成为有效利用这一潜力的解决方案。
+          </span>
+          <span lang="sa">
+            تتمتع إندونيسيا بإمكانات كبيرة في السوق العالمية بفضل ثروتها من
+            الموارد الطبيعية الوفيرة، مثل النفط والغاز والمنتجات الزراعية. يمكن
+            أن يكون السوق المفتوح الإندونيسي حلاً فعالاً للاستفادة من هذه
+            الإمكانات من خلال التجارة الإلكترونية من خلال زيادة الوصول إلى
+            الأسواق الدولية
+          </span>
         </p>
-        <a href="#market" class="cta" onclick="displaychange(0,0,1,0)"
-          >Sektor Market</a
-        >
+        <a href="#market" class="cta" onclick="displaychange(0,0,1,0)">
+          <span lang="id">Sektor Market</span>
+          <span lang="en">Market Sector</span>
+          <span lang="cn">市场部门</span>
+          <span lang="sa">قطاع السوق</span>
+        </a>
       </main>
     </section>
     <!-- Hero Section End-->
 
     <!-- About Section Start -->
     <section id="about" class="about">
-      <h2><span>Tentang</span> Kami</h2>
+      <h2>
+        <span lang="id"
+          ><span style="color: var(--primary)">Tentang</span> Kami</span
+        >
+        <span lang="en"
+          ><span style="color: var(--primary)">About</span> Us</span
+        >
+        <span lang="cn"
+          ><span style="color: var(--primary)">关于</span> 我们</span
+        >
+        <span lang="sa">معلومات عنا</span>
+      </h2>
       <div class="row">
         <div class="about-img">
-          <img src="img/tentang-kami.jpg" alt="Tentang Kami" />
+          <img
+            src="img/tentang-kami.jpg"
+            style="border: 2px solid gray; border-radius: 5%"
+          />
         </div>
         <div class="content">
-          <h3>Mengenai Indonesia Open Market</h3>
+          <h3 style="display: none">
+            <span lang="id">Mengenai Indonesia Open Market </span>
+            <span lang="en">Regarding "Indonesia Open Market"</span>
+            <span lang="cn">关于“印度尼西亚开放市场”</span>
+            <span lang="sa">بشأن "السوق المفتوح في إندونيسيا"</span>
+          </h3>
           <p>
-            Indonesia Open Market berfokus pada peningkatan infrastruktur
-            digital, pelatihan, dan akses ke pembiayaan, sehingga pelaku usaha
-            kecil dan menengah (UKM) dapat memasarkan produk mereka secara lebih
-            luas.
+            <span lang="id">
+              Indonesia Open Market berfokus pada peningkatan infrastruktur
+              digital, pelatihan, dan akses ke pembiayaan, sehingga pelaku usaha
+              kecil dan menengah (UKM) dapat memasarkan produk mereka secara
+              lebih luas.
+            </span>
+            <span lang="en">
+              The Indonesia Open Market focuses on improving digital
+              infrastructure, training, and access to financing, so that small
+              and medium enterprises (SMEs) can market their products more
+              widely.
+            </span>
+            <span lang="cn">
+              印度尼西亚开放市场专注于改善数字基础设施、培训和融资渠道，以便中小企业（SME）能够更广泛地推销其产品。
+            </span>
+            <span lang="sa">
+              تركز السوق المفتوحة في إندونيسيا على تحسين البنية التحتية الرقمية
+              والتدريب والوصول إلى التمويل، بحيث يمكن للشركات الصغيرة والمتوسطة
+              (SMEs) تسويق منتجاتها على نطاق أوسع.
+            </span>
           </p>
           <p>
-            Dengan demikian, Indonesia Open Market dapat mempercepat pertumbuhan
-            ekonomi digital, menarik lebih banyak investasi, mendorong inovasi,
-            dan menciptakan lapangan kerja, menjadikan Indonesia pemain utama di
-            pasar global.
+            <span lang="id">
+              Dengan demikian, Indonesia Open Market dapat mempercepat
+              pertumbuhan ekonomi digital, menarik lebih banyak investasi,
+              mendorong inovasi, dan menciptakan lapangan kerja, menjadikan
+              Indonesia pemain utama di pasar global.
+            </span>
+            <span lang="en">
+              Therefore, the Indonesia Open Market can accelerate digital
+              economic growth, attract more investment, drive innovation, and
+              create jobs, making Indonesia a major player in the global market.
+            </span>
+            <span lang="cn">
+              因此，印尼开放市场可以加速数字经济增长，吸引更多投资，推动创新，创造就业机会，使印尼成为全球市场的主要参与者。
+            </span>
+            <span lang="sa">
+              وبالتالي، يمكن للسوق المفتوحة في إندونيسيا تسريع نمو الاقتصاد
+              الرقمي، وجذب المزيد من الاستثمارات، ودفع الابتكار، وخلق فرص العمل،
+              مما يجعل إندونيسيا لاعباً رئيسياً في السوق العالمية.
+            </span>
           </p>
         </div>
       </div>
@@ -87,38 +231,553 @@
 
     <!-- Market Section Start -->
     <section id="market" class="market">
-      <h2><span>Sektor</span> Market</h2>
+      <h2>
+        <span lang="id">
+          <span style="color: var(--primary)">Sektor</span> Market
+        </span>
+        <span lang="en">
+          <span style="color: var(--primary)">Market</span> Sector
+        </span>
+        <span lang="cn">
+          <span style="color: var(--primary)">市场</span>部门
+        </span>
+        <span lang="sa">قطاع السوق</span>
+      </h2>
 
       <p>
-        Sektor kerajinan, hasil bumi, hasil laut, dan hasil tambang Indonesia
-        menyediakan produk berkualitas untuk bersaing di pasar global
+        <span lang="id">
+          Sektor kerajinan, hasil bumi, hasil laut, dan hasil tambang Indonesia
+          menyediakan produk berkualitas untuk bersaing di pasar global.
+        </span>
+        <span lang="en">
+          Indonesia's craft, agricultural, marine, and mining sectors provide
+          quality products to compete in the global market.
+        </span>
+        <span lang="cn">
+          印度尼西亚的手工艺品、农产品、海产品和矿产品行业提供优质产品，在全球市场上竞争。
+        </span>
+        <span lang="sa">
+          توفر قطاعات الحرف اليدوية والمنتجات الزراعية والبحرية والتعدين في
+          إندونيسيا منتجات ذات جودة عالية للمنافسة في السوق العالمية.
+        </span>
       </p>
 
       <div class="row">
         <div class="menu-card">
-          <img class="menu-card-img" src="img/menu/menu1.jpg" alt="" />
-          <h3 class="menu-card-title">- Kerajinan Rumah Tangga -</h3>
+          <a href="#home-industry" onclick="displaychange2(1,0,0,0)">
+            <img class="menu-card-img" src="img/menu/menu1.jpg" alt="" />
+          </a>
+          <h3 class="menu-card-title">
+            -
+            <span lang="id">Kerajinan Rumah Tangga</span>
+            <span lang="en">Home Industry</span>
+            <span lang="cn">家庭手工业</span>
+            <span lang="sa">الصناعات المنزلية</span>
+            -
+          </h3>
         </div>
         <div class="menu-card">
-          <img class="menu-card-img" src="img/menu/menu2.jpg" alt="" />
-          <h3 class="menu-card-title">- Hasil Bumi -</h3>
+          <a href="#agriculture-industry" onclick="displaychange2(0,1,0,0)">
+            <img class="menu-card-img" src="img/menu/menu2.jpg" alt="" />
+          </a>
+          <h3 class="menu-card-title">
+            -
+            <span lang="id">Hasil Bumi</span>
+            <span lang="en">Agricultural Products</span>
+            <span lang="cn">土特产</span>
+            <span lang="sa">منتجات الأرض</span>
+            -
+          </h3>
         </div>
         <div class="menu-card">
-          <img class="menu-card-img" src="img/menu/menu3.jpg" alt="" />
-          <h3 class="menu-card-title">- Hasil Laut -</h3>
+          <a href="#marine-industry" onclick="displaychange2(0,0,1,0)">
+            <img class="menu-card-img" src="img/menu/menu3.jpg" alt="" />
+          </a>
+          <h3 class="menu-card-title">
+            -
+            <span lang="id">Hasil Laut</span>
+            <span lang="en">Marine Products</span>
+            <span lang="cn">海产品</span>
+            <span lang="sa">منتجات البحر</span>
+            -
+          </h3>
         </div>
         <div class="menu-card">
-          <img class="menu-card-img" src="img/menu/menu4.jpg" alt="" />
-          <h3 class="menu-card-title">- Hasil Tambang -</h3>
+          <a href="#mining-industry" onclick="displaychange2(0,0,0,1)">
+            <img class="menu-card-img" src="img/menu/menu4.jpg" alt="" />
+          </a>
+          <h3 class="menu-card-title">
+            -
+            <span lang="id">Hasil Tambang</span>
+            <span lang="en">Mining Products</span>
+            <span lang="cn">矿产品</span>
+            <span lang="sa">منتجات التعدين</span>
+            -
+          </h3>
         </div>
       </div>
     </section>
 
     <!-- Market Section End -->
 
+    <!-- Home Industry Section Start -->
+
+    <section id="home-industry" class="home-industry" style="display: none">
+      <h2 class="menu-card-title">
+        -
+        <span lang="id">Kerajinan Rumah Tangga</span>
+        <span lang="en">Home Industry</span>
+        <span lang="cn">家庭手工业</span>
+        <span lang="sa">الصناعات المنزلية</span>
+        -
+      </h2>
+      <div style="width: 100%; max-height: 350px; overflow-y: scroll">
+        <table cellspacing="0" style="width: 800px">
+          <thead>
+            <tr>
+              <th style="width: 10%">
+                <span lang="id">No.</span>
+                <span lang="en">No.</span>
+                <span lang="cn">序号</span>
+                <span lang="sa">رقم</span>
+              </th>
+              <th style="width: 25%">
+                <span lang="id">Nama Barang</span>
+                <span lang="en">Item Name</span>
+                <span lang="cn">商品名称</span>
+                <span lang="sa">اسم السلعة</span>
+              </th>
+              <th style="width: 25%">
+                <span lang="id">Lokasi</span>
+                <span lang="en">Location</span>
+                <span lang="cn">位置</span>
+                <span lang="sa">الموقع</span>
+              </th>
+              <th style="width: 20%">
+                <span lang="id">No. Handphone</span>
+                <span lang="en">Phone Number</span>
+                <span lang="cn">手机号码</span>
+                <span lang="sa">رقم الهاتف</span>
+              </th>
+              <th style="width: 20%">
+                <span lang="id">Harga Pokok</span>
+                <span lang="en">Cost Price</span>
+                <span lang="cn">成本价</span>
+                <span lang="sa">سعر التكلفة</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Pot Keramik</td>
+              <td>Jakarta Selatan</td>
+              <td>---</td>
+              <td>IDR 50000</td>
+            </tr>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Tas Anyaman Bambu</td>
+              <td>Bandung</td>
+              <td>---</td>
+              <td>IDR 85000</td>
+            </tr>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Kain Tenun</td>
+              <td>Bekasi</td>
+              <td>---</td>
+              <td>IDR 135000</td>
+            </tr>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Patung Garuda Kayu</td>
+              <td>Bali</td>
+              <td>---</td>
+              <td>IDR 150000</td>
+            </tr>
+
+            <tr>
+              <td class="counterCell"></td>
+              <td>Lukisan Kuda Terbang</td>
+              <td>Solo</td>
+              <td>---</td>
+              <td>IDR 100000</td>
+            </tr>
+
+            <tr>
+              <td class="counterCell"></td>
+              <td>Aksesori Kalung Manik-manik</td>
+              <td>Jakarta Barat</td>
+              <td>---</td>
+              <td>IDR 30000</td>
+            </tr>
+
+            <tr>
+              <td class="counterCell"></td>
+              <td>Hiasan Dinding</td>
+              <td>Tanjung Pinang</td>
+              <td>---</td>
+              <td>IDR 45000</td>
+            </tr>
+
+            <tr>
+              <td class="counterCell"></td>
+              <td>Akuarium Kaca</td>
+              <td>Bogor</td>
+              <td>---</td>
+              <td>IDR 165000</td>
+            </tr>
+
+            <tr>
+              <td class="counterCell"></td>
+              <td>Meja Kayu Ukir</td>
+              <td>Malang</td>
+              <td>---</td>
+              <td>IDR 465000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- Home Industry Section End -->
+
+    <!-- Hasil Bumi Section Start -->
+    <section
+      id="agriculture-industry"
+      class="agriculture-industry"
+      style="display: none"
+    >
+      <h2 class="menu-card-title">
+        -
+        <span lang="id">Hasil Bumi</span>
+        <span lang="en">Agricultural Products</span>
+        <span lang="cn">土特产</span>
+        <span lang="sa">منتجات الأرض</span>
+        -
+      </h2>
+
+      <div style="width: 100%; max-height: 350px; overflow-y: scroll">
+        <table cellspacing="0" style="width: 800px">
+          <thead>
+            <tr>
+              <th style="width: 10%">
+                <span lang="id">No.</span>
+                <span lang="en">No.</span>
+                <span lang="cn">序号</span>
+                <span lang="sa">رقم</span>
+              </th>
+              <th style="width: 25%">
+                <span lang="id">Nama Barang</span>
+                <span lang="en">Item Name</span>
+                <span lang="cn">商品名称</span>
+                <span lang="sa">اسم السلعة</span>
+              </th>
+              <th style="width: 25%">
+                <span lang="id">Lokasi</span>
+                <span lang="en">Location</span>
+                <span lang="cn">位置</span>
+                <span lang="sa">الموقع</span>
+              </th>
+              <th style="width: 20%">
+                <span lang="id">No. Handphone</span>
+                <span lang="en">Phone Number</span>
+                <span lang="cn">手机号码</span>
+                <span lang="sa">رقم الهاتف</span>
+              </th>
+              <th style="width: 20%">
+                <span lang="id">Harga Pokok</span>
+                <span lang="en">Cost Price</span>
+                <span lang="cn">成本价</span>
+                <span lang="sa">سعر التكلفة</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Beras 1 liter</td>
+              <td>Jakarta Selatan</td>
+              <td>---</td>
+              <td>IDR 10000</td>
+            </tr>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Jagung 10 kg</td>
+              <td>Bandung</td>
+              <td>---</td>
+              <td>IDR 125000</td>
+            </tr>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Jeruk 10 kg</td>
+              <td>Bekasi</td>
+              <td>---</td>
+              <td>IDR 135000</td>
+            </tr>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Semangka 3 kg</td>
+              <td>Bali</td>
+              <td>---</td>
+              <td>IDR 150000</td>
+            </tr>
+
+            <tr>
+              <td class="counterCell"></td>
+              <td>Teh Melati Kering 20 kg</td>
+              <td>Solo</td>
+              <td>---</td>
+              <td>IDR 600000</td>
+            </tr>
+
+            <tr>
+              <td class="counterCell"></td>
+              <td>Cabai Kering 15 kg</td>
+              <td>Jakarta Barat</td>
+              <td>---</td>
+              <td>IDR 230000</td>
+            </tr>
+
+            <tr>
+              <td class="counterCell"></td>
+              <td>Singkong 10 kg</td>
+              <td>Papua Barat</td>
+              <td>---</td>
+              <td>IDR 145000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- Hasil Bumi Section End -->
+
+    <!-- Hasil Laut Section Start -->
+    <section id="marine-industry" class="marine-industry" style="display: none">
+      <h2 class="menu-card-title">
+        -
+        <span lang="id">Hasil Laut</span>
+        <span lang="en">Marine Products</span>
+        <span lang="cn">海产品</span>
+        <span lang="sa">منتجات البحر</span>
+        -
+      </h2>
+
+      <div style="width: 100%; max-height: 350px; overflow-y: scroll">
+        <table cellspacing="0" style="width: 800px">
+          <thead>
+            <tr>
+              <th style="width: 10%">
+                <span lang="id">No.</span>
+                <span lang="en">No.</span>
+                <span lang="cn">序号</span>
+                <span lang="sa">رقم</span>
+              </th>
+              <th style="width: 25%">
+                <span lang="id">Nama Barang</span>
+                <span lang="en">Item Name</span>
+                <span lang="cn">商品名称</span>
+                <span lang="sa">اسم السلعة</span>
+              </th>
+              <th style="width: 25%">
+                <span lang="id">Lokasi</span>
+                <span lang="en">Location</span>
+                <span lang="cn">位置</span>
+                <span lang="sa">الموقع</span>
+              </th>
+              <th style="width: 20%">
+                <span lang="id">No. Handphone</span>
+                <span lang="en">Phone Number</span>
+                <span lang="cn">手机号码</span>
+                <span lang="sa">رقم الهاتف</span>
+              </th>
+              <th style="width: 20%">
+                <span lang="id">Harga Pokok</span>
+                <span lang="en">Cost Price</span>
+                <span lang="cn">成本价</span>
+                <span lang="sa">سعر التكلفة</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Ikan Tuna 10 kg</td>
+              <td>Jakarta Utara</td>
+              <td>---</td>
+              <td>IDR 120000</td>
+            </tr>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Lobster 10 kg</td>
+              <td>Cirebon</td>
+              <td>---</td>
+              <td>IDR 125000</td>
+            </tr>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Rumput Laut 10 kg</td>
+              <td>Tanjung Mas</td>
+              <td>---</td>
+              <td>IDR 135000</td>
+            </tr>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Udang 3 kg</td>
+              <td>Sumatera Barat</td>
+              <td>---</td>
+              <td>IDR 150000</td>
+            </tr>
+
+            <tr>
+              <td class="counterCell"></td>
+              <td>Sirip Hiu 20 kg</td>
+              <td>Nusa Tenggara Barat</td>
+              <td>---</td>
+              <td>IDR 600000</td>
+            </tr>
+
+            <tr>
+              <td class="counterCell"></td>
+              <td>Kepiting Anggora 1 ekor</td>
+              <td>Sulawesi Selatan</td>
+              <td>---</td>
+              <td>IDR 530000</td>
+            </tr>
+
+            <tr>
+              <td class="counterCell"></td>
+              <td>Ikan Gabus 10 kg</td>
+              <td>Bali</td>
+              <td>---</td>
+              <td>IDR 345000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- Hasil Laut Section End -->
+
+    <!-- Hasil Tambang Section Start -->
+
+    <section id="mining-industry" class="mining-industry" style="display: none">
+      <h2 class="menu-card-title">
+        -
+        <span lang="id">Hasil Tambang</span>
+        <span lang="en">Mining Products</span>
+        <span lang="cn">矿产品</span>
+        <span lang="sa">منتجات التعدين</span>
+        -
+      </h2>
+      <div style="width: 100%; max-height: 350px; overflow-y: scroll">
+        <table cellspacing="0" style="width: 800px">
+          <thead>
+            <tr>
+              <th style="width: 10%">
+                <span lang="id">No.</span>
+                <span lang="en">No.</span>
+                <span lang="cn">序号</span>
+                <span lang="sa">رقم</span>
+              </th>
+              <th style="width: 25%">
+                <span lang="id">Nama Barang</span>
+                <span lang="en">Item Name</span>
+                <span lang="cn">商品名称</span>
+                <span lang="sa">اسم السلعة</span>
+              </th>
+              <th style="width: 25%">
+                <span lang="id">Lokasi</span>
+                <span lang="en">Location</span>
+                <span lang="cn">位置</span>
+                <span lang="sa">الموقع</span>
+              </th>
+              <th style="width: 20%">
+                <span lang="id">No. Handphone</span>
+                <span lang="en">Phone Number</span>
+                <span lang="cn">手机号码</span>
+                <span lang="sa">رقم الهاتف</span>
+              </th>
+              <th style="width: 20%">
+                <span lang="id">Harga Pokok</span>
+                <span lang="en">Cost Price</span>
+                <span lang="cn">成本价</span>
+                <span lang="sa">سعر التكلفة</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Emas 10kg</td>
+              <td>Jakarta Utara</td>
+              <td>---</td>
+              <td>IDR 11200000</td>
+            </tr>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Batu Bara 10 kg</td>
+              <td>Kalimantan Tengah</td>
+              <td>---</td>
+              <td>IDR 12500000</td>
+            </tr>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Timah 10 kg</td>
+              <td>Bandung</td>
+              <td>---</td>
+              <td>IDR 13500000</td>
+            </tr>
+            <tr>
+              <td class="counterCell"></td>
+              <td>Nikel 3 kg</td>
+              <td>Sumatera Selatan</td>
+              <td>---</td>
+              <td>IDR 1500000</td>
+            </tr>
+
+            <tr>
+              <td class="counterCell"></td>
+              <td>Tembaga 20 kg</td>
+              <td>Madura</td>
+              <td>---</td>
+              <td>IDR 60000000</td>
+            </tr>
+
+            <tr>
+              <td class="counterCell"></td>
+              <td>Batu Gamping 2 ton</td>
+              <td>Blora</td>
+              <td>---</td>
+              <td>IDR 53000000</td>
+            </tr>
+
+            <tr>
+              <td class="counterCell"></td>
+              <td>Besi 4 ton</td>
+              <td>Papua Barat</td>
+              <td>---</td>
+              <td>IDR 34500000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- Hasil Tambang Section End -->
+
     <!-- Contact Section Start -->
     <section id="contact" class="contact">
-      <h2><span>Kontak</span> Kami</h2>
+      <h2>
+        <span lang="id">
+          <span style="color: var(--primary)">Kontak</span> Kami
+        </span>
+        <span lang="en">
+          <span style="color: var(--primary)">Contact</span> Us
+        </span>
+        <span lang="cn">
+          <span style="color: var(--primary)">联系</span>我们
+        </span>
+        <span lang="sa">اتصل بنا</span>
+      </h2>
 
       <p>
         <!-- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi,
@@ -162,10 +821,30 @@
       </div>
 
       <div class="links">
-        <a href="#home" onclick="displaychange(1,0,0,0)">Beranda</a>
-        <a href="#market" onclick="displaychange(0,0,1,0)">Sektor Market</a>
-        <a href="#about" onclick="displaychange(0,1,0,0)">Tentang Kami</a>
-        <a href="#contact" onclick="displaychange(0,0,0,1)">Kontak</a>
+        <a href="#home" onclick="displaychange(1,0,0,0)">
+          <span lang="id">Beranda</span>
+          <span lang="en">Home</span>
+          <span lang="cn">首页</span>
+          <span lang="sa">الصفحة الرئيسية</span>
+        </a>
+        <a href="#market" onclick="displaychange(0,0,1,0)">
+          <span lang="id">Sektor Market</span>
+          <span lang="en">Market Sector</span>
+          <span lang="cn">市场部门</span>
+          <span lang="sa">قطاع السوق</span>
+        </a>
+        <a href="#about" onclick="displaychange(0,1,0,0)">
+          <span lang="id">Tentang Kami</span>
+          <span lang="en">About Us</span>
+          <span lang="cn">关于我们</span>
+          <span lang="sa">معلومات عنا</span>
+        </a>
+        <a href="#contact" onclick="displaychange(0,0,0,1)">
+          <span lang="id">Kontak</span>
+          <span lang="en">Contact Us</span>
+          <span lang="cn">联系我们</span>
+          <span lang="sa">اتصل بنا</span>
+        </a>
       </div>
       <div class="credit">
         Copyrighted by <a href="">PT Lintas Batas Nusantara</a> | &copy; 2024
@@ -177,6 +856,7 @@
     <script>
       feather.replace();
     </script>
+
     <!-- My Javascript -->
     <script src="js/script.js"></script>
   </body>

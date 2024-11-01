@@ -46,9 +46,9 @@ body {
   font-style: italic;
 }
 
-.navbar .navbar-logo span {
-  color: var(--primary);
-}
+/* .navbar .navbar-logo span { */
+/* color: var(--primary); */
+/* } */
 
 .navbar .navbar-nav a {
   color: #fff;
@@ -87,14 +87,17 @@ body {
   display: none;
 }
 
-#shopping-cart {
-  display: none;
-}
 /* Hero Section */
 
 .hero {
-  min-height: 100vh;
   display: flex;
+}
+
+.hero,
+.about,
+.market,
+.contact {
+  min-height: 100vh;
   align-items: center;
   background-image: url("../img/header-bg.jpg");
   background-repeat: no-repeat;
@@ -103,7 +106,10 @@ body {
   position: relative;
 }
 
-.hero::after {
+.hero::after,
+.about::after,
+.market::after,
+.contact::after {
   content: "";
   display: block;
   position: absolute;
@@ -117,7 +123,10 @@ body {
   );
 }
 
-.hero .content {
+.hero .content,
+.about .content,
+.market .content,
+.contact .content {
   padding: 1.4rem 7%;
   max-width: 60rem;
 }
@@ -129,16 +138,18 @@ body {
   line-height: 1.2;
 }
 
-.hero .content h1 span {
-  color: var(--primary);
-}
+/* .hero .content h1 span { */
+/* color: var(--primary); */
+/* } */
 
 .hero .content p {
   font-size: 1.5rem;
   margin-top: 1rem;
   line-height: 1.4;
   font-weight: 300;
+
   background-color: rgba(1, 1, 3, 0.5);
+
   padding: 10px;
   text-align: justify;
   text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
@@ -156,15 +167,17 @@ body {
   box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
 }
 /* About Section */
-.about,
-.market,
-.contact {
-  display: none;
-}
 
 .about,
 .market,
 .contact {
+  padding: 8rem 7% 1.4rem;
+}
+
+.home-industry,
+.agriculture-industry,
+.marine-industry,
+.mining-industry {
   padding: 8rem 7% 1.4rem;
 }
 
@@ -173,14 +186,25 @@ body {
 .contact h2 {
   text-align: center;
   font-size: 2.6rem;
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+  line-height: 1.2;
   margin-bottom: 3rem;
 }
 
-.about h2 span,
-.market h2 span,
-.contact h2 span {
-  color: var(--primary);
+.home-industry h2,
+.agriculture-industry h2,
+.marine-industry h2,
+.mining-industry h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
 }
+
+/* .about h2 span, */
+/* .market h2 span, */
+/* .contact h2 span { */
+/* color: var(--primary); */
+/* } */
 
 .about .row {
   display: flex;
@@ -209,6 +233,9 @@ body {
   font-size: 1.4rem;
   font-weight: 300;
   line-height: 1.6;
+  background-color: rgba(1, 1, 3, 0.5);
+
+  padding: 10px;
 }
 
 /* market Section */
@@ -224,6 +251,12 @@ body {
   margin: auto;
   font-weight: 300;
   line-height: 1.6;
+
+  padding: 10px;
+}
+
+.market p {
+  background-color: rgba(1, 1, 3, 0.5);
 }
 
 .market .row {
@@ -251,7 +284,7 @@ body {
 .contact .row {
   display: flex;
   margin-top: 2rem;
-  background-color: #222;
+  background-color: rgba(34, 34, 34, 0.5);
 }
 
 .contact .row .map {
@@ -333,6 +366,94 @@ footer .credit a {
   font-weight: 700;
 }
 
+/* Tabel */
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #666;
+  text-shadow: 1px 1px 0px #fff;
+  background: #eaebec;
+  border: #ccc 1px solid;
+  table-layout: fixed;
+
+  margin: auto;
+  counter-reset: tableCount;
+}
+
+.counterCell:before {
+  content: counter(tableCount);
+  counter-increment: tableCount;
+}
+
+table th {
+  padding: 15px 35px;
+  border-left: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  background: #ededed;
+}
+
+table th:first-child {
+  padding-left: 20px;
+
+  border-left: none;
+}
+
+table tr {
+  text-align: center;
+  padding-left: 20px;
+}
+
+table td:first-child {
+  /* text-align: left; */
+  padding-left: 20px;
+  border-left: 0;
+}
+
+table td {
+  padding: 15px 35px;
+  word-wrap: break-word;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+  background: #fafafa;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#fbfbfb),
+    to(#fafafa)
+  );
+  background: -moz-linear-gradient(top, #fbfbfb, #fafafa);
+}
+
+table tr:last-child td {
+  border-bottom: 0;
+}
+
+table tr:last-child td:first-child {
+  -moz-border-radius-bottomleft: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+table tr:last-child td:last-child {
+  -moz-border-radius-bottomright: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+table tr:hover td {
+  background: #f2f2f2;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#f2f2f2),
+    to(#f0f0f0)
+  );
+  background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
+}
+
 /* Media Queries */
 
 /* Laptop */
@@ -401,6 +522,8 @@ footer .credit a {
   }
 
   .about .row .content p {
+    background-color: rgba(1, 1, 3, 0.5);
+
     font-size: 1.6rem;
   }
 
