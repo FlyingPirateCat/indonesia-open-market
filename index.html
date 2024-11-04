@@ -16,6 +16,10 @@
     <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
 
+    <!-- JQuery -->
+     
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <!-- Google Translate -->
     <script type="text/javascript">
       function googleTranslateElementInit() {
@@ -69,37 +73,56 @@
           onclick="langs = document.getElementById('lang-switch');
           langs.style.display ='inline-block';
           setTimeout(function() {
-            langs.style.display = 'inline-block';
-            flagswitch();
-             }, 5000);"
-        >
-          <span >
-            <img
-              flag="img-flag"
-              src="img/flag/id.png"
-              width="30px"
-              style="align-items: center; margin-bottom: -3px"
-            />
-          </span>
+          langs.style.display = 'none';
+          flagswitch();
+          }, 5000);"
+          >
+        <span >
+        <img
+          id="flag-id"
+          src="img/flag/id.png"
+          width="30px"
+          style="align-items: center; margin-bottom: -3px"
+          />
+        <img
+          id="flag-usa"
+          src="img/flag/usa.png"
+          width="30px"
+          style="display:none; align-items: center; margin-bottom: -3px"
+          />
+        <img
+          id="flag-cn"
+          src="img/flag/cn.png"
+          width="30px"
+          style="display:none; align-items: center; margin-bottom: -3px"
+          />
+        <img
+          id="flag-sa"
+          src="img/flag/sa.png"
+          width="30px"
+          style="display:none; align-items: center; margin-bottom: -3px"
+          />
         </a>
         <div id="lang-switch" 
-        style="display: inline-block; position: relative; bottom: 10px">
-          <div
-            id="google_translate_element"
-            style="display: inline-block"
-          ></div>
+           style="display: none; position: relative; bottom: 10px">
+           <div
+              id="google_translate_element"
+              style="display: inline-block"
+              ></div>
         </div>
-        <a href="#" id="search-button"><i data-feather="search" stysle="display: none"></i></a>
+        <a href="#" id="search-button" onclick="sf = document.querySelector('.search-form');
+           sf.style.display ='inline-block';" >
+        <i data-feather="search" ></i></a>
         <a href="#" id="shopping-cart" style="display: none"><i data-feather="shopping-cart"></i></a>
         <a href="#" id="hamburger-menu"> <i data-feather="menu"></i> </a>
-      </div>
+     </div>
 
-<!-- Search Form start -->
- <div class="search-form" stysle="display: none">
-  <input type="search" id="search-box" placeholder="search here...">
-  <label for="search-box"><i data-feather="search"></i></label>
- </div>
-<!-- Search Form end -->
+     <!-- Search Form start -->
+     <div class="search-form" stysle="display: none">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box"><i data-feather="search"></i></label>
+     </div>
+     <!-- Search Form end -->
 
     </nav>
     <!-- Navbar end -->

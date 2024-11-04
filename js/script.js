@@ -58,40 +58,43 @@ function displaychange2(p1, p2, p3, p4) {
 
 // fungsi ganti bahasa
 
-function readCookie(name) {
-  var c = document.cookie.split("; "),
-    cookies = {},
-    i,
-    C;
-  for (i = c.length - 1; i >= 0; i--) {
-    C = c[i].split("=");
-    cookies[C[0]] = C[1];
-  }
-  return cookies[name];
-}
-
 function flagswitch() {
-  const googtr = readCookie("googtrans").split("/")[2];
-  // document.getElementsByTagName('html')[0].lang
-  // const imgflag = document.getElementById("img-flag");
-  const imgflag = document.querySelector("img[flag]");
   // const opening = document.getElementById("opening");
-  // opening.innerHTML = document.getElementsByTagName("html")[0].lang;
+  // opening.innerHTML = langs;
+
+  // const googtr = readCookie("googtrans").split("/")[2];
+  const googtr = (lang = document.querySelector("html").getAttribute("lang"));
+
+  const flagid = document.getElementById("flag-id");
+  const flagusa = document.getElementById("flag-usa");
+  const flagcn = document.getElementById("flag-cn");
+  const flagsa = document.getElementById("flag-sa");
 
   if (googtr == "id") {
-    imgflag.src = "img/flag/id.png";
+    flagid.style.display = "inline-block";
+    flagusa.style.display = "none";
+    flagcn.style.display = "none";
+    flagsa.style.display = "none";
   } else if (googtr == "en") {
-    imgflag.src = "img/flag/usa.png";
+    flagid.style.display = "none";
+    flagusa.style.display = "inline-block";
+    flagcn.style.display = "none";
+    flagsa.style.display = "none";
   } else if (googtr == "zh-CN") {
-    imgflag.src = "img/flag/cn.png";
+    flagid.style.display = "none";
+    flagusa.style.display = "none";
+    flagcn.style.display = "inline-block";
+    flagsa.style.display = "none";
   } else if (googtr == "ع" || googtr == "ar") {
-    imgflag.src = "img/flag/sa.png";
+    flagid.style.display = "none";
+    flagusa.style.display = "none";
+    flagcn.style.display = "none";
+    flagsa.style.display = "inline-block";
   }
 }
 
 window.setInterval(function () {
   flagswitch();
-}, 5000);
+}, 2000);
 
-setcookie("googtrans", "/en/id");
 flagswitch();
