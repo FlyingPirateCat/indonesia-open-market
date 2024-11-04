@@ -116,5 +116,5 @@ window.gtranslateSettings["43217984"] = {
   flag_style: "2d", // Flag Style
   flag_size: 24, // Flag Size
   horizontal_position: "inline", // Set Horizontal Position
-  flags_location: "flags/", // Set Flags Location
+  flags_location: "img/flags/", // Set Flags Location
 };
