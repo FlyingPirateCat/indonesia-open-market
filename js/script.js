@@ -44,13 +44,40 @@ function displaychange2(p1, p2, p3, p4) {
 
 // fungsi ganti bahasa
 
-function changelanguage(type) {
-  const langs = document.querySelectorAll("span[lang]");
-  document.getElementById("form-lang-switch").style.display = "none";
-  document.getElementById("lang-switch").value = type;
-
-  langs.forEach((main) => {
-    main.style.display = main.lang == type ? "inline-block" : "none";
-  });
+function readCookie(name) {
+  var c = document.cookie.split("; "),
+    cookies = {},
+    i,
+    C;
+  for (i = c.length - 1; i >= 0; i--) {
+    C = c[i].split("=");
+    cookies[C[0]] = C[1];
+  }
+  return cookies[name];
 }
-changelanguage("id"); // show just Indonesian text (you can change it)
+
+function flagswitch() {
+  const googtr = readCookie("googtrans").split("/")[2];
+  // document.getElementsByTagName('html')[0].lang
+  // const imgflag = document.getElementById("img-flag");
+  const imgflag = document.querySelector("img[flag]");
+  // const opening = document.getElementById("opening");
+  // opening.innerHTML = document.getElementsByTagName("html")[0].lang;
+
+  if (googtr == "id") {
+    imgflag.src = "img/flag/id.png";
+  } else if (googtr == "en") {
+    imgflag.src = "img/flag/usa.png";
+  } else if (googtr == "zh-CN") {
+    imgflag.src = "img/flag/cn.png";
+  } else if (googtr == "ع" || googtr == "ar") {
+    imgflag.src = "img/flag/sa.png";
+  }
+}
+
+window.setInterval(function () {
+  flagswitch();
+}, 5000);
+
+setcookie("googtrans", "/en/id");
+flagswitch();
