@@ -56,42 +56,43 @@ function displaychange2(p1, p2, p3, p4) {
   miningindustry.style.display = p4 == 1 ? "block" : "none";
 }
 
-// fungsi ganti bahasa
+// fungsi ganti bendera
 
 function flagswitch() {
-  // const opening = document.getElementById("opening");
-  // opening.innerHTML = langs;
+  const googtr = document.querySelector("html").getAttribute("lang");
+  const flag = document.getElementById("flag-img");
+  const langs = ["id", "en", "zh-CN", "ar"];
 
-  // const googtr = readCookie("googtrans").split("/")[2];
-  const googtr = (lang = document.querySelector("html").getAttribute("lang"));
-
-  const flagid = document.getElementById("flag-id");
-  const flagusa = document.getElementById("flag-usa");
-  const flagcn = document.getElementById("flag-cn");
-  const flagsa = document.getElementById("flag-sa");
-
-  if (googtr == "id") {
-    flagid.style.display = "inline-block";
-    flagusa.style.display = "none";
-    flagcn.style.display = "none";
-    flagsa.style.display = "none";
-  } else if (googtr == "en") {
-    flagid.style.display = "none";
-    flagusa.style.display = "inline-block";
-    flagcn.style.display = "none";
-    flagsa.style.display = "none";
-  } else if (googtr == "zh-CN") {
-    flagid.style.display = "none";
-    flagusa.style.display = "none";
-    flagcn.style.display = "inline-block";
-    flagsa.style.display = "none";
-  } else if (googtr == "ع" || googtr == "ar") {
-    flagid.style.display = "none";
-    flagusa.style.display = "none";
-    flagcn.style.display = "none";
-    flagsa.style.display = "inline-block";
+  if (langs.includes(googtr)) {
+    file = "img/flag/" + googtr + ".png";
+    if (!flag.src.includes(googtr + ".png")) {
+      flag.src = file + "?timestamp=" + Date.now;
+    }
   }
 }
+
+// if (googtr == "id") {
+//   flagid.src = "img/flag/id.png";
+//   // flagusa.style.display = "none";
+//   // flagcn.style.display = "none";
+//   // flagsa.style.display = "none";
+// } else if (googtr == "en") {
+//   flagid.src = "img/flag/usa.png";
+//   // flagusa.style.display = "inline-block";
+//   // flagcn.style.display = "none";
+//   // flagsa.style.display = "none";
+// } else if (googtr == "zh-CN") {
+//   flagid.src = "img/flag/cn.png";
+//   // flagusa.style.display = "none";
+//   // flagcn.style.display = "inline-block";
+//   // flagsa.style.display = "none";
+// } else if (googtr == "ع" || googtr == "ar") {
+//   flagid.src = "img/flag/sa.png";
+//   // flagusa.style.display = "none";
+//   // flagcn.style.display = "none";
+//   // flagsa.style.display = "inline-block";
+// }
+// }
 
 window.setInterval(function () {
   flagswitch();

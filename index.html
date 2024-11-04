@@ -67,8 +67,7 @@
       </div>
 
       <div class="navbar-extra">
-        <a
-          href="#"
+        <a href="#"
           onload ="flagswitch()"
           onclick="langs = document.getElementById('lang-switch');
           langs.style.display ='inline-block';
@@ -77,39 +76,20 @@
           flagswitch();
           }, 5000);"
           >
-        <span >
-        <img
-          id="flag-id"
-          src="img/flag/id.png"
-          width="30px"
-          style="align-items: center; margin-bottom: -3px"
-          />
-        <img
-          id="flag-usa"
-          src="img/flag/usa.png"
-          width="30px"
-          style="display:none; align-items: center; margin-bottom: -3px"
-          />
-        <img
-          id="flag-cn"
-          src="img/flag/cn.png"
-          width="30px"
-          style="display:none; align-items: center; margin-bottom: -3px"
-          />
-        <img
-          id="flag-sa"
-          src="img/flag/sa.png"
-          width="30px"
-          style="display:none; align-items: center; margin-bottom: -3px"
-          />
+          <img
+              id="flag-img"
+              src="img/flag/id.png"
+              width="30px"
+              style="align-items: center; margin-bottom: -3px"
+           />
         </a>
-        <div id="lang-switch" 
-           style="display: none; position: relative; bottom: 10px">
-           <div
-              id="google_translate_element"
-              style="display: inline-block"
-              ></div>
+     <div id="lang-switch" 
+        style="display: none; position: relative; bottom: 10px">
+        <div
+           id="google_translate_element"
+           style="display: inline-block" >
         </div>
+     </div>
         <a href="#" id="search-button" onclick="sf = document.querySelector('.search-form');
            sf.style.display ='inline-block';" >
         <i data-feather="search" ></i></a>
