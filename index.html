@@ -69,7 +69,7 @@
           onclick="langs = document.getElementById('lang-switch');
           langs.style.display ='inline-block';
           setTimeout(function() {
-            langs.style.display = 'none';
+            langs.style.display = 'inline-block';
             flagswitch();
              }, 5000);"
         >
@@ -83,20 +83,27 @@
           </span>
         </a>
         <div id="lang-switch" 
-        style="display: none; position: relative; bottom: 10px">
+        style="undisplay: none; position: relative; bottom: 10px">
           <div
             id="google_translate_element"
             style="display: inline-block"
           ></div>
         </div>
-        <a href="#" id="search"><i data-feather="search" style="display: none"></i></a>
-        <a href="#" id="shopping-cart" style="display: none"
-          ><i data-feather="shopping-cart"></i
-        ></a>
+        <a href="#" id="search-button"><i data-feather="search" stysle="display: none"></i></a>
+        <a href="#" id="shopping-cart" style="display: none"><i data-feather="shopping-cart"></i></a>
         <a href="#" id="hamburger-menu"> <i data-feather="menu"></i> </a>
       </div>
+
+<!-- Search Form start -->
+ <div class="search-form" stysle="display: none">
+  <input type="search" id="search-box" placeholder="search here...">
+  <label for="search-box"><i data-feather="search"></i></label>
+ </div>
+<!-- Search Form end -->
+
     </nav>
     <!-- Navbar end -->
+
 
     <!-- Hero Section Start-->
     <section class="hero" id="home">
