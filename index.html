@@ -17,27 +17,8 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- JQuery -->
-     
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <!-- Google Translate -->
-    <script type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-          {
-            pageLanguage: "id",
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            includedLanguages: "id,en,zh-CN,ar",
-          },
-          "google_translate_element"
-        );
-      }
-    </script>
-    <script
-      type="text/javascript"
-      src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    ></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ 
     <!-- My Style -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
@@ -67,7 +48,11 @@
       </div>
 
       <div class="navbar-extra">
-        <a href="#"
+        
+        <a href="#" 
+        onclick="globefunction();"
+        id="globe"> <i data-feather="globe"></i> </a>
+        <!-- <a href="#"
           onload ="flagswitch()"
           onclick="langs = document.getElementById('lang-switch');
           langs.style.display ='inline-block';
@@ -82,19 +67,21 @@
               width="30px"
               style="align-items: center; margin-bottom: -3px"
            />
-        </a>
-     <div id="lang-switch" 
-        style="display: none; position: relative; bottom: 10px">
-        <div
-           id="google_translate_element"
-           style="display: inline-block" >
+        </a> -->
+        <div id="lang-switch" 
+            style="display:none; position: relative; bottom: 10px">
+            <div
+              id="gt-mordadam-43217984"
+              style="display: inline-block" >
+            </div>
         </div>
-     </div>
-        <a href="#" id="search-button" onclick="sf = document.querySelector('.search-form');
-           sf.style.display ='inline-block';" >
-        <i data-feather="search" ></i></a>
-        <a href="#" id="shopping-cart" style="display: none"><i data-feather="shopping-cart"></i></a>
-        <a href="#" id="hamburger-menu"> <i data-feather="menu"></i> </a>
+        <div id="other-extra" style="display:inline-block">
+          <a href="#" id="search-button" onclick="sf = document.querySelector('.search-form');
+            sf.style.display ='inline-block';" >
+          <i data-feather="search" ></i></a>
+          <a href="#" id="shopping-cart" style="display: none"><i data-feather="shopping-cart"></i></a>
+          <a href="#" id="hamburger-menu"> <i data-feather="menu"></i> </a>
+        </div>
      </div>
 
      <!-- Search Form start -->
@@ -676,5 +663,10 @@
 
     <!-- My Javascript -->
     <script src="js/script.js"></script>
+
+    <!-- Google Translate -->
+    <script src="js/gt.settings.js"></script>
+    <script src="js/gt.min.js" data-gt-widget-id="43217984"></script>
+
   </body>
 </html>

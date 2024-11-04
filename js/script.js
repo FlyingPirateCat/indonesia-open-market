@@ -57,45 +57,55 @@ function displaychange2(p1, p2, p3, p4) {
 }
 
 // fungsi ganti bendera
-
-function flagswitch() {
-  const googtr = document.querySelector("html").getAttribute("lang");
-  const flag = document.getElementById("flag-img");
-  const langs = ["id", "en", "zh-CN", "ar"];
-
-  if (langs.includes(googtr)) {
-    file = "img/flag/" + googtr + ".png";
-    if (!flag.src.includes(googtr + ".png")) {
-      flag.src = file + "?timestamp=" + Date.now;
-    }
-  }
+function globefunction() {
+  langs = document.getElementById("lang-switch");
+  extra = document.getElementById("other-extra");
+  langs.style.display = "inline-block";
+  extra.style.display = "none";
+  setTimeout(function () {
+    langs.style.display = "none";
+    extra.style.display = "inline-block";
+  }, 5000);
 }
 
-// if (googtr == "id") {
-//   flagid.src = "img/flag/id.png";
-//   // flagusa.style.display = "none";
-//   // flagcn.style.display = "none";
-//   // flagsa.style.display = "none";
-// } else if (googtr == "en") {
-//   flagid.src = "img/flag/usa.png";
-//   // flagusa.style.display = "inline-block";
-//   // flagcn.style.display = "none";
-//   // flagsa.style.display = "none";
-// } else if (googtr == "zh-CN") {
-//   flagid.src = "img/flag/cn.png";
-//   // flagusa.style.display = "none";
-//   // flagcn.style.display = "inline-block";
-//   // flagsa.style.display = "none";
-// } else if (googtr == "ع" || googtr == "ar") {
-//   flagid.src = "img/flag/sa.png";
-//   // flagusa.style.display = "none";
-//   // flagcn.style.display = "none";
-//   // flagsa.style.display = "inline-block";
-// }
+// function flagswitch() {
+//   const googtr = document.querySelector("html").getAttribute("lang");
+//   const flag = document.getElementById("flag-img");
+//   const langs = ["id", "en", "zh-CN", "ar"];
+
+//   if (langs.includes(googtr)) {
+//     file = "img/flag/" + googtr + ".png";
+//     if (!flag.src.includes(googtr + ".png")) {
+//       flag.src = file + "?timestamp=" + Date.now;
+//     }
+//   }
 // }
 
-window.setInterval(function () {
-  flagswitch();
-}, 2000);
+// // if (googtr == "id") {
+// //   flagid.src = "img/flag/id.png";
+// //   // flagusa.style.display = "none";
+// //   // flagcn.style.display = "none";
+// //   // flagsa.style.display = "none";
+// // } else if (googtr == "en") {
+// //   flagid.src = "img/flag/usa.png";
+// //   // flagusa.style.display = "inline-block";
+// //   // flagcn.style.display = "none";
+// //   // flagsa.style.display = "none";
+// // } else if (googtr == "zh-CN") {
+// //   flagid.src = "img/flag/cn.png";
+// //   // flagusa.style.display = "none";
+// //   // flagcn.style.display = "inline-block";
+// //   // flagsa.style.display = "none";
+// // } else if (googtr == "ع" || googtr == "ar") {
+// //   flagid.src = "img/flag/sa.png";
+// //   // flagusa.style.display = "none";
+// //   // flagcn.style.display = "none";
+// //   // flagsa.style.display = "inline-block";
+// // }
+// // }
 
-flagswitch();
+// window.setInterval(function () {
+//   flagswitch();
+// }, 2000);
+
+// flagswitch();
