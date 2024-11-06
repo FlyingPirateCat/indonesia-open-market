@@ -6,6 +6,8 @@ window.gtranslateSettings["43217984"] = {
     "en",
     "zh-CN",
     "ar",
+    "ja",
+    "ko",
     // "af",
     // "sq",
     // "am",

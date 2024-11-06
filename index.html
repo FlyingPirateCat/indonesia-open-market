@@ -33,24 +33,25 @@
       </a>
 
       <div class="navbar-nav" >
-        <a href="#home" onclick="displaychange(1,0,0,0)">
+        <a href="#home" onclick="displaychange(1,0,0,0,0)">
           <span>Beranda</span>
         </a>
-        <a href="#market" onclick="displaychange(0,0,1,0)">
+        <a href="#market" onclick="displaychange(0,0,1,0,0)">
           <span>Sektor Market</span>
         </a>
-        <a href="#about" onclick="displaychange(0,1,0,0)">
+        <a href="#about" onclick="displaychange(0,1,0,0,0)">
           <span>Tentang Kami</span>
         </a>
-        <a href="#contact" onclick="displaychange(0,0,0,1)">
+        <a href="#skema" onclick="displaychange(0,0,0,0,1)">
+          <span>Skema Distribusi</span>
+        </a>
+        <a href="#contact" onclick="displaychange(0,0,0,1,0)">
           <span>Link Terkait</span>
         </a>
       </div>
 
       <div class="navbar-extra">
-        
-        <a href="#" id="globe" 
-          onclick="globefunction();"> <i data-feather="globe"></i> </a>
+        <a href="#" id="globe-button" > <i data-feather="globe"></i> </a>
         <div id="lang-switch" 
             style="display:none; position: relative; bottom: 10px">
             <div
@@ -59,16 +60,14 @@
             </div>
         </div>
         <div id="other-extra" style="display:inline-block">
-          <a href="#" id="search-button" onclick="sf = document.querySelector('.search-form');
-            sf.style.display ='inline-block';" >
-          <i data-feather="search" ></i></a>
+          <a href="#" id="search-button"><i data-feather="search" ></i></a>
           <a href="#" id="shopping-cart" style="display: none"><i data-feather="shopping-cart"></i></a>
           <a href="#" id="hamburger-menu"> <i data-feather="menu"></i> </a>
         </div>
      </div>
 
      <!-- Search Form start -->
-     <div class="search-form" stysle="display: none">
+     <div class="search-form">
         <input type="search" id="search-box" placeholder="search here...">
         <label for="search-box"><i data-feather="search"></i></label>
      </div>
@@ -91,7 +90,7 @@
             meningkatkan akses ke pasar internasional.
           </span>
         </p>
-        <a href="#market" class="cta" onclick="displaychange(0,0,1,0)">
+        <a href="#market" class="cta" onclick="displaychange(0,0,1,0,0)">
           <span>Sektor Market</span>
         </a>
       </main>
@@ -149,7 +148,7 @@
       </p>
       <div class="row">
         <div class="menu-card">
-          <a href="#home-industry" onclick="displaychange2(1,0,0,0)">
+          <a href="#products" onclick="displaychange2(1,0,0,0)">
             <img class="menu-card-img" src="img/menu/menu1.jpg" alt="" />
           </a>
           <h3 class="menu-card-title">
@@ -159,7 +158,7 @@
           </h3>
         </div>
         <div class="menu-card">
-          <a href="#agriculture-industry" onclick="displaychange2(0,1,0,0)">
+          <a href="#products" onclick="displaychange2(0,1,0,0)">
             <img class="menu-card-img" src="img/menu/menu2.jpg" alt="" />
           </a>
           <h3 class="menu-card-title">
@@ -169,7 +168,7 @@
           </h3>
         </div>
         <div class="menu-card">
-          <a href="#marine-industry" onclick="displaychange2(0,0,1,0)">
+          <a href="#products" onclick="displaychange2(0,0,1,0)">
             <img class="menu-card-img" src="img/menu/menu3.jpg" alt="" />
           </a>
           <h3 class="menu-card-title">
@@ -179,7 +178,7 @@
           </h3>
         </div>
         <div class="menu-card">
-          <a href="#mining-industry" onclick="displaychange2(0,0,0,1)">
+          <a href="#products" onclick="displaychange2(0,0,0,1)">
             <img class="menu-card-img" src="img/menu/menu4.jpg" alt="" />
           </a>
           <h3 class="menu-card-title">
@@ -201,6 +200,7 @@
         <span>Kerajinan Rumah Tangga</span>
         -
       </h2>
+      
       <div style="width: 100%; max-height: 350px; overflow-y: scroll">
         <table class="table-product" cellspacing="0" style="width: 800px">
           <thead>
@@ -295,275 +295,541 @@
         </table>
       </div>
     </section>
-    <!-- Home Industry Section End -->
 
-    <!-- Hasil Bumi Section Start -->
-    <section
-      id="agriculture-industry"
-      class="agriculture-industry"
-      style="display: none"
-    >
-      <h2 class="menu-card-title">
-        -
-        <span>Hasil Bumi</span>
-        -
-      </h2>
+  <!-- Products Section start -->
+  <section class="products" id="products" style="display: none">
+    <h2 id="home-product" style="display: none">Kerajinan Rumah Tangga</h2>
+    <h2 id="agri-product" style="display: none">Hasil Bumi</h2>
+    <h2 id="sea-product" style="display: none">Hasil Laut</h2>
+    <h2 id="mine-product" style="display: none">Hasil Tambang</h2>
+    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo unde eum, ab fuga possimus iste.</p> -->
 
-      <div style="width: 100%; max-height: 350px; overflow-y: scroll">
-        <table class="table-product" cellspacing="0" style="width: 800px">
-          <thead>
-            <tr>
-              <th style="width: 10%">
-                <span>No.</span>
-              </th>
-              <th style="width: 25%">
-                <span>Nama Barang</span>
-              </th>
-              <th style="width: 25%">
-                <span>Lokasi</span>
-              </th>
-              <th style="width: 20%">
-                <span>No. Handphone</span>
-              </th>
-              <th style="width: 20%">
-                <span>Harga Pokok</span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="counterCell"></td>
-              <td>Beras 1 liter</td>
-              <td>Jakarta Selatan</td>
-              <td>---</td>
-              <td>IDR 10000</td>
-            </tr>
-            <tr>
-              <td class="counterCell"></td>
-              <td>Jagung 10 kg</td>
-              <td>Bandung</td>
-              <td>---</td>
-              <td>IDR 125000</td>
-            </tr>
-            <tr>
-              <td class="counterCell"></td>
-              <td>Jeruk 10 kg</td>
-              <td>Bekasi</td>
-              <td>---</td>
-              <td>IDR 135000</td>
-            </tr>
-            <tr>
-              <td class="counterCell"></td>
-              <td>Semangka 3 kg</td>
-              <td>Bali</td>
-              <td>---</td>
-              <td>IDR 150000</td>
-            </tr>
-
-            <tr>
-              <td class="counterCell"></td>
-              <td>Teh Melati Kering 20 kg</td>
-              <td>Solo</td>
-              <td>---</td>
-              <td>IDR 600000</td>
-            </tr>
-
-            <tr>
-              <td class="counterCell"></td>
-              <td>Cabai Kering 15 kg</td>
-              <td>Jakarta Barat</td>
-              <td>---</td>
-              <td>IDR 230000</td>
-            </tr>
-
-            <tr>
-              <td class="counterCell"></td>
-              <td>Singkong 10 kg</td>
-              <td>Papua Barat</td>
-              <td>---</td>
-              <td>IDR 145000</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- home product row -->
+    <div id="home-product-row" class="row">
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_pot.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Pot Keramik</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae officiis molestias cum porro consequuntur quasi.</p>
+          <div class="product-stars" >
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 30000</span> 
+            <span class="pre-discount"> IDR 55000</span>
+          </div>
+        </div>
       </div>
-    </section>
-    <!-- Hasil Bumi Section End -->
-
-    <!-- Hasil Laut Section Start -->
-    <section id="marine-industry" class="marine-industry" style="display: none">
-      <h2 class="menu-card-title">
-        -
-        <span>Hasil Laut</span>
-        -
-      </h2>
-
-      <div style="width: 100%; max-height: 350px; overflow-y: scroll">
-        <table class="table-product" cellspacing="0" style="width: 800px">
-          <thead>
-            <tr>
-              <th style="width: 10%">
-                <span>No.</span>
-              </th>
-              <th style="width: 25%">
-                <span>Nama Barang</span>
-              </th>
-              <th style="width: 25%">
-                <span>Lokasi</span>
-              </th>
-              <th style="width: 20%">
-                <span>No. Handphone</span>
-              </th>
-              <th style="width: 20%">
-                <span>Harga Pokok</span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="counterCell"></td>
-              <td>Ikan Tuna 10 kg</td>
-              <td>Jakarta Utara</td>
-              <td>---</td>
-              <td>IDR 120000</td>
-            </tr>
-            <tr>
-              <td class="counterCell"></td>
-              <td>Lobster 10 kg</td>
-              <td>Cirebon</td>
-              <td>---</td>
-              <td>IDR 125000</td>
-            </tr>
-            <tr>
-              <td class="counterCell"></td>
-              <td>Rumput Laut 10 kg</td>
-              <td>Tanjung Mas</td>
-              <td>---</td>
-              <td>IDR 135000</td>
-            </tr>
-            <tr>
-              <td class="counterCell"></td>
-              <td>Udang 3 kg</td>
-              <td>Sumatera Barat</td>
-              <td>---</td>
-              <td>IDR 150000</td>
-            </tr>
-
-            <tr>
-              <td class="counterCell"></td>
-              <td>Sirip Hiu 20 kg</td>
-              <td>Nusa Tenggara Barat</td>
-              <td>---</td>
-              <td>IDR 600000</td>
-            </tr>
-
-            <tr>
-              <td class="counterCell"></td>
-              <td>Kepiting Anggora 1 ekor</td>
-              <td>Sulawesi Selatan</td>
-              <td>---</td>
-              <td>IDR 530000</td>
-            </tr>
-
-            <tr>
-              <td class="counterCell"></td>
-              <td>Ikan Gabus 10 kg</td>
-              <td>Bali</td>
-              <td>---</td>
-              <td>IDR 345000</td>
-            </tr>
-          </tbody>
-        </table>
+      
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#" ><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_tas_bambu.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Tas Anyaman Bambu</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, optio quisquam. Officiis quibusdam unde qui.</p>
+          <div class="product-stars">
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 250000</span>
+          </div>
+        </div>
       </div>
-    </section>
-    <!-- Hasil Laut Section End -->
-
-    <!-- Hasil Tambang Section Start -->
-
-    <section id="mining-industry" class="mining-industry" style="display: none">
-      <h2 class="menu-card-title">
-        -
-        <span>Hasil Tambang</span>
-        -
-      </h2>
-      <div style="width: 100%; max-height: 350px; overflow-y: scroll">
-        <table class="table-product" cellspacing="0" style="width: 800px">
-          <thead>
-            <tr>
-              <th style="width: 10%">
-                <span>No.</span>
-              </th>
-              <th style="width: 25%">
-                <span>Nama Barang</span>
-              </th>
-              <th style="width: 25%">
-                <span>Lokasi</span>
-              </th>
-              <th style="width: 20%">
-                <span>No. Handphone</span>
-              </th>
-              <th style="width: 20%">
-                <span>Harga Pokok</span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="counterCell"></td>
-              <td>Emas 10kg</td>
-              <td>Jakarta Utara</td>
-              <td>---</td>
-              <td>IDR 11200000</td>
-            </tr>
-            <tr>
-              <td class="counterCell"></td>
-              <td>Batu Bara 10 kg</td>
-              <td>Kalimantan Tengah</td>
-              <td>---</td>
-              <td>IDR 12500000</td>
-            </tr>
-            <tr>
-              <td class="counterCell"></td>
-              <td>Timah 10 kg</td>
-              <td>Bandung</td>
-              <td>---</td>
-              <td>IDR 13500000</td>
-            </tr>
-            <tr>
-              <td class="counterCell"></td>
-              <td>Nikel 3 kg</td>
-              <td>Sumatera Selatan</td>
-              <td>---</td>
-              <td>IDR 1500000</td>
-            </tr>
-
-            <tr>
-              <td class="counterCell"></td>
-              <td>Tembaga 20 kg</td>
-              <td>Madura</td>
-              <td>---</td>
-              <td>IDR 60000000</td>
-            </tr>
-
-            <tr>
-              <td class="counterCell"></td>
-              <td>Batu Gamping 2 ton</td>
-              <td>Blora</td>
-              <td>---</td>
-              <td>IDR 53000000</td>
-            </tr>
-
-            <tr>
-              <td class="counterCell"></td>
-              <td>Besi 4 ton</td>
-              <td>Papua Barat</td>
-              <td>---</td>
-              <td>IDR 34500000</td>
-            </tr>
-          </tbody>
-        </table>
+      
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_kain_tenun.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Kain Tenun</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto praesentium eveniet vero quam, deserunt quae?</p>
+          <div class="product-stars">
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 75000</span>
+          </div>
+        </div>
       </div>
-    </section>
-    <!-- Hasil Tambang Section End -->
+      
+      <div class="product-card">
+        <div class="product-icons" >
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_patung_garuda.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Patung Garuda Kayu</h3>
+          <p id="product-desc" style="display:none">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, itaque sed distinctio corrupti dolorem minus.</p>
+          <div class="product-stars" >
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 2000000</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_kalung_manik.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Kalung Manik-manik</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et delectus quis possimus labore, sapiente nulla.</p>
+          <div class="product-stars">
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 19550</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_akuarium.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Akuarium Kaca</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, sapiente assumenda cupiditate molestiae voluptatibus sint.</p>
+          <div class="product-stars">
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 450000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- agri product row -->
+    <div id="agri-product-row" class="row">
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_bawang_merah.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Bawang Merah Brebes 1kg</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat magnam iure nam eius fuga incidunt?</p>
+          <div class="product-stars" >
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 28000</span> 
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#" ><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_beras_lampung.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Beras Medium Lampung 1kg</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique, consequatur. Deserunt molestiae iste mollitia explicabo.</p>
+          <div class="product-stars">
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 13600</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_gabah_cianjur.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Gabah Cianjur 1kg</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti excepturi labore eos placeat hic ut!</p>
+          <div class="product-stars">
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 7000</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-icons" >
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_gabah_grobogan.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Gabah Grobogan 1kg</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat cupiditate dignissimos magnam? Ullam, minima voluptatem!</p>
+          <div class="product-stars" >
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 7800</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_gabah_lampung.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Gabah Lampung 1kg</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error eos, ab autem accusantium id assumenda.</p>
+          <div class="product-stars">
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 8000</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-icons" >
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_jagung_lampung.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Jagung Lampung 1kg</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, impedit! Natus labore obcaecati nesciunt architecto!</p>
+          <div class="product-stars">
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 5100</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_jagung_tasikmalaya.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Jagung Tasikmalaya 1kg</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eaque veritatis blanditiis id aut tempora!</p>
+          <div class="product-stars">
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 4600</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_kakao_kendari.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Kakao Kendari 1kg</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut in sed nemo doloribus, dolorem nostrum!</p>
+          <div class="product-stars">
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 54000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- sea product row -->
+    <div id="sea-product-row" class="row">
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_ikan_tuna.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Ikan Tuna 1kg</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus reprehenderit dicta error quasi sed quod.</p>
+          <div class="product-stars" >
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 15000</span> 
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#" ><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_lobster.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Lobster Laut Frozen 1Kg</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, quo neque doloremque quod quibusdam corrupti!</p>
+          <div class="product-stars">
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 95000</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <!-- mine product row -->
+    <div id="mine-product-row" class="row">
+
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_batu_bara.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Batu Bara 1kg</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, commodi ex reprehenderit voluptate asperiores error.</p>
+          <div class="product-stars" >
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 60790</span> 
+          </div>
+        </div>
+        
+      </div>
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_nikel.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Anoda Nikel 99% 1kg</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates praesentium expedita atque accusantium dolore similique?</p>
+          <div class="product-stars" >
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 574900</span> 
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="#"><i data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="img/products/sample_plat_tembaga.jpg" >
+        </div>
+        <div class="product-content">
+          <h3 id="product-name">Plat Tembaga Busbar 15mm x 60mm x 100mm</h3>
+          <p id="product-desc" style="display:none">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore repellendus ducimus esse fuga ad voluptatum?</p>
+          <div class="product-stars">
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div id="product-price" class="notranslate" >
+            <span>IDR 240000</span> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Products Section end -->
+
+<!-- Skema Section start -->
+<section id="skema" class="skema" style="display: none">
+
+  <div class="content">
+
+
+<table class="skema-pic">
+  <tr style="padding-top:30px 
+  padding-left: 40px;">
+    <td>
+      Customer: Menerima Barang -> <br>
+      Konfirmasi Penerimaan -> <br>
+      Memberikan Ulasan
+  </td>
+  <td>
+    Customer: Memesan Produk -> <br>
+    Melakukan Pembayaran -> <br>
+    Melakukan Konfirmasi
+</td>
+<td>
+  Indonesia Open Market: <br>
+  Menerima Pembayaran -> <br>
+  Meneruskan Pesanan ke Penjual
+</td>
+    </tr>
+    <tr><td>Perusahaan Pengiriman: dalam hal ini<br>
+      PT. Pos Indonesia mengambil barang dari Penjual -> <br>
+      Mendata dan memproses pengiriman ->
+      Mengirim ke rumah pelanggan.
+    </td><td></td><td>
+      Penjual: Menyiapkan barang pesanan untuk<br>
+      nanti siap diangkut oleh PT. Pos Indonesia<br>
+      selaku perusahaan pengiriman berpengalaman yang<br>
+      tergabung sebagai mitra kerja.
+    </td></tr>
+
+</table>
+
+
+      
+    </p>
+  </div>
+
+</section>
+<!-- Skema Section end -->
+
+
+
+
+
+
+
+
+
 
 
 
@@ -573,8 +839,8 @@
          <span> <span style="color: var(--primary)">Link</span> Terkait</span>
       </h2>
       <div class="row">
-         <div style="padding-left:20px;padding-top:20px; padding-bottom:20px;display:flex">
-            <div class="about-img"  style="width:190px;">
+         <div class="content">
+            <div class="about-img" >
                <img
                   class="img"
                   src="img/LBN.jpg"
@@ -584,7 +850,7 @@
                   style="border: 2px solid gray; border-radius: 5%;"
                   />
             </div>
-            <div style="min-width:400px;padding-left:12rem" >
+            <div class="about-link" >
                <h3 style="font-size: 1.8rem; 
   text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5); margin-bottom: 1rem;">
                   <span>Link Terkait</span>
@@ -617,16 +883,19 @@
 
       <div class="links">
         <div class="notranslate">
-          <a href="#home" onclick="displaychange(1,0,0,0)">
+          <a href="#home" onclick="displaychange(1,0,0,0,0)">
             <span>Beranda</span>
           </a>
-          <a href="#market" onclick="displaychange(0,0,1,0)">
+          <a href="#market" onclick="displaychange(0,0,1,0,0)">
             <span>Sektor Market</span>
           </a>
-          <a href="#about" onclick="displaychange(0,1,0,0)">
+          <a href="#about" onclick="displaychange(0,1,0,0,0)">
             <span>Tentang Kami</span>
           </a>
-          <a href="#contact" onclick="displaychange(0,0,0,1)">
+          <a href="#skema" onclick="displaychange(0,0,0,0,1)">
+            <span>Skema Distribusi</span>
+          </a>
+          <a href="#contact" onclick="displaychange(0,0,0,1,0)">
             <span>Link Terkait</span>
           </a>
         </div>
@@ -636,6 +905,36 @@
       </div>
     </footer>
     <!-- Footer end -->
+
+  <!-- Modal Box Item Detail start -->
+  <div class="modal" id="item-detail-modal" style="display:none">
+    <div class="modal-container">
+      <a href="#" class="close-icon"><i data-feather="x"></i></a>
+      <div class="modal-content">
+        <img id="product-img" src="">
+        <div class="product-content">
+          <h3 id="product-name">Product Name</h3>
+          <p id="product-desc">Product Description</p>
+          <div class="product-stars" style="display: none;">
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star"></i>
+          </div>
+          
+          <div id="product-price" class="notranslate" >
+            <span>IDR 240000</span> 
+          </div>
+          <a href="#" style="display:none"><i data-feather="shopping-cart"></i> <span>add to cart</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Box Item Detail end -->
+
+
+
 
     <!-- Feather Icons -->
     <script>
