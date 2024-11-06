@@ -440,7 +440,7 @@ body {
 
 .skema .content table {
   width: 860px;
-  height: 480px;
+  height: 428.667px;
   background-image: url("../img/skema.jpg");
 
   background-repeat: no-repeat;
@@ -836,6 +836,10 @@ table tr:hover td {
 
   .modal-content {
     flex-wrap: wrap;
+  }
+
+  .skema .content table {
+    width: 400px;
   }
 }
 
