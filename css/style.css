@@ -235,9 +235,9 @@ body {
 }
 
 .skema {
-  min-height: 110vh;
+  /* min-height: 110vh; */
   overflow-y: hidden;
-  margin-top: 5.89rem;
+  /* margin-top: 5.89rem; */
 }
 
 .about h2,
@@ -421,14 +421,17 @@ body {
 }
 
 /* Skema section */
+.skema .content {
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-top: 6rem;
+}
 
 .skema .content p {
   font-size: 1.2rem;
   line-height: 1.4;
   font-weight: 300;
-
   color: #000;
-
   padding: 10px;
   text-align: justify;
   text-shadow: 1px 1px 3px rgba(65, 65, 192, 0.5);
@@ -438,8 +441,6 @@ body {
 .skema .content table {
   width: 860px;
   height: 480px;
-  top: 0;
-  left: 0;
   background-image: url("../img/skema.jpg");
 
   background-repeat: no-repeat;
