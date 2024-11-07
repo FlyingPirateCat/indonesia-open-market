@@ -618,9 +618,9 @@ footer .credit a {
 }
 
 .modal-content a {
-  display: flex;
+  display: inline-flex;
   gap: 1rem;
-  width: 12rem;
+  width: 14rem;
   background-color: var(--primary);
   color: #fff;
   margin-top: 1rem;
