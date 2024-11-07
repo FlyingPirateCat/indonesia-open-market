@@ -2,6 +2,7 @@
 const navbarNav = document.querySelector(".navbar-nav");
 const hm = document.querySelector("#hamburger-menu");
 const sb = document.querySelector("#search-button");
+const sc = document.querySelector("#shopping-cart-button");
 
 // ketika hamburger menu di klik
 document.querySelector("#hamburger-menu").onclick = () => {
@@ -22,13 +23,20 @@ document.querySelector("#search-button").onclick = (e) => {
 document.querySelector("#globe-button").onclick = (e) => {
   e.preventDefault();
   langs = document.getElementById("lang-switch");
-  extra = document.getElementById("other-extra");
+  extra = document.querySelector(".other-extra");
   langs.style.display = "inline-block";
   extra.style.display = "none";
   setTimeout(function () {
     langs.style.display = "none";
     extra.style.display = "inline-block";
   }, 5000);
+};
+
+// Toggle class active untuk shopping cart
+const shoppingCart = document.querySelector(".shopping-cart");
+document.querySelector("#shopping-cart-button").onclick = (e) => {
+  shoppingCart.classList.toggle("active");
+  e.preventDefault();
 };
 
 // klik di luar elemen untuk menghilangkan nav
@@ -38,6 +46,9 @@ document.addEventListener("click", function (e) {
   }
   if (!sb.contains(e.target) && !searchForm.contains(e.target)) {
     searchForm.classList.remove("active");
+  }
+  if (!sc.contains(e.target) && !shoppingCart.contains(e.target)) {
+    shoppingCart.classList.remove("active");
   }
 });
 
@@ -53,7 +64,7 @@ function displaychange(p1, p2, p3, p4, p5) {
   about.style.display = p2 == 1 ? "flex" : "none";
   market.style.display = p3 == 1 ? "flex" : "none";
   contact.style.display = p4 == 1 ? "block" : "none";
-  skema.style.display = p5 == 1 ? "block" : "none";
+  skema.style.display = p5 == 1 ? "flex" : "none";
 
   displaychange2(0, 0, 0, 0);
 }
@@ -131,3 +142,22 @@ window.onclick = (e) => {
     itemDetailModal.style.display = "none";
   }
 };
+
+// Disable zoom
+window.addEventListener(
+  "wheel",
+  (e) => {
+    if (e.ctrlKey) {
+      e.preventDefault();
+    }
+  },
+  { passive: false }
+);
+
+document.addEventListener("keydown", function (event) {
+  if ((event.ctrlKey || event.metaKey) && event.key === "-") {
+    event.preventDefault();
+  } else if (event.code === "NumpadAdd" || event.code === "Equal") {
+    event.preventDefault();
+  }
+});
