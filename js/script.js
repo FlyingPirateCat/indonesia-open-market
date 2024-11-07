@@ -50,8 +50,8 @@ function displaychange(p1, p2, p3, p4, p5) {
   const skema = document.getElementById("skema");
 
   home.style.display = p1 == 1 ? "flex" : "none";
-  about.style.display = p2 == 1 ? "inline-block" : "none";
-  market.style.display = p3 == 1 ? "inline-block" : "none";
+  about.style.display = p2 == 1 ? "flex" : "none";
+  market.style.display = p3 == 1 ? "flex" : "none";
   contact.style.display = p4 == 1 ? "block" : "none";
   skema.style.display = p5 == 1 ? "block" : "none";
 
