@@ -26,12 +26,12 @@
       <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
 
       <!-- App -->
-       <script src="src/app.js"></script>
+      <script src="src/app.js"></script>
    </head>
    <body>
 
       <!-- Navbar start -->
-      <nav class="navbar">
+      <nav class="navbar" x-data>
          <a href="#" class="navbar-logo"
             >Indonesia<span style="color: black" oldstyle="color: var(--primary)"
             >OpenMarket</span
@@ -59,7 +59,10 @@
             </div>
             <div class="other-extra" style="display:inline-block">
                <a href="#" id="search-button"><i data-feather="search" ></i></a>
-               <a href="#" id="shopping-cart-button" ><i data-feather="shopping-cart"></i></a>
+               <a href="#" id="shopping-cart-button" >
+                  <i data-feather="shopping-cart"></i>
+                  <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
+               </a>
                <a href="#" id="hamburger-menu"> <i data-feather="menu"></i> </a>
             </div>
          </div>
@@ -73,30 +76,24 @@
 
          <!-- Shopping Cart start -->
          <div class="shopping-cart">
-            <div class="cart-item">
-            <img src="img/products/1.jpg" alt="Product 1">
-            <div class="item-detail">
-               <h3>Product 1</h3>
-               <div class="item-price">IDR 30K</div>
-            </div>
-            <i data-feather="trash-2" class="remove-item"></i>
-            </div>
-            <div class="cart-item">
-            <img src="img/products/1.jpg" alt="Product 1">
-            <div class="item-detail">
-               <h3>Product 1</h3>
-               <div class="item-price">IDR 30K</div>
-            </div>
-            <i data-feather="trash-2" class="remove-item"></i>
-            </div>
-            <div class="cart-item">
-            <img src="img/products/1.jpg" alt="Product 1">
-            <div class="item-detail">
-               <h3>Product 1</h3>
-               <div class="item-price">IDR 30K</div>
-            </div>
-            <i data-feather="trash-2" class="remove-item"></i>
-            </div>
+            <template x-for="(item,index) in $store.cart.items" x-keys="index">
+               <div class="cart-item">
+                  <img :src="`img/products/${item.img}`" alt="item.name">
+                  <div class="item-detail">
+                     <h3 x-text="item.name"></h3>
+                     <div class="item-price">
+                        <span x-text="rupiah(item.price)"></span> &times;
+                        <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button></button>
+                        <span x-text="item.quantity">1</span>
+                        <button id="add" @click="$store.cart.add(item)">&plus;</button></button> &equals;
+                        <span x-text="rupiah(item.total)"></span> 
+                     </div>
+                  </div>
+               </div>
+            </template>
+            <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem;">Keranjang Belanjamu Kosong</h4>
+            <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
+            <h4 style="height:200px"></h4>
          </div>
          <!-- Shopping Cart end -->
 
@@ -166,7 +163,6 @@
             </div>
          </div>
       </section>
-      
       <!-- About Section End -->
 
       <!-- Market Section Start -->
@@ -217,446 +213,286 @@
             </div>
          </div>
       </section>
-      
       <!-- Market Section End -->
 
       
 
       <!-- Products Section start -->
-      <section class="products" id="products" style="display: none">
+      <section class="products" id="products" x-data="products"  style="display: none">
          <h2 id="home-product" style="display: none">Kerajinan Rumah Tangga</h2>
          <h2 id="agri-product" style="display: none">Hasil Bumi</h2>
          <h2 id="sea-product" style="display: none">Hasil Laut</h2>
          <h2 id="mine-product" style="display: none">Hasil Tambang</h2>
          <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo unde eum, ab fuga possimus iste.</p> -->
          
+         
+         <i data-feather="star" onload="feather.replace()" style="display: none;"></i>
          <!-- home product row -->
          <div id="home-product-row" class="row">
-            <!-- <template x-for="(item,index) in items" x-key="index">
-               <div class="product-card">
-                  <div class="product-image">
-                     <img :src="'img/products/${item.img}'" :alt="item.name">
-                  </div>
-                  <div class="product-content">
-                     <h3 id="product-name" x-text="item.name"></h3>
-                     <p id="product-desc" stylse="display:none">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae officiis molestias cum porro consequuntur quasi.</p>
-                     <div class="product-stars">
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
+            <template x-for="(item,index) in items" x-key="index">
+               <template x-if="item.type == 'home-product'">
+                  <div class="product-card" 
+                     onclick="lastchild = this.lastElementChild;
+                     grandchild = lastchild.firstElementChild;
+                     if (grandchild.style.display != 'none') {
+                     lastchild.style.display ='flex';
+                     } else {
+                     grandchild.style.display = 'flex';
+                     };" >
+                     <div class="product-image">
+                        <img :src="`img/products/${item.img}`" :alt="item.name">
                      </div>
-                     <div id="product-price" class="notranslate" >
-                        <span x-text="item.price"></span> 
-                        <span class="pre-discount"> IDR 55000</span>
+                     <div class="product-content">
+                        <h3 id="product-name" x-text="item.name" ></h3>
+                        <p id="product-desc" x-text="item.desc" style="display:none"></p>
+                        <div class="product-stars" >                        
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                        </div>
+                        <div id="product-price" class="notranslate" >
+                           <span x-text="rupiah(item.price)"></span> 
+                        </div>
+                     </div>
+                     <div class="modal" id="`modal-box-${item.id}`" style='display:none;'>
+                        <div class="modal-container">
+                           <span class="close-icon"
+                              onclick="parent = this.parentElement;
+                              grandparent = parent.parentElement;
+                              parent.style.display='none';
+                              grandparent.style.display='none';">
+                           <i data-feather="x"></i>
+                           </span>
+                           <div class="modal-content">
+                              <img :src="`img/products/${item.img}`" :alt="item.name">
+                              <div class="modal-wrap">
+                                 <h3 id="product-name" x-text="item.name" ></h3>
+                                 <p id="product-desc" x-text="item.desc"></p>
+                                 <div class="product-stars" >
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                 </div>
+                                 <div id="product-price" class="notranslate" >
+                                    <span x-text="rupiah(item.price)"></span> 
+                                 </div>
+                                 <div>
+                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><i data-feather="shopping-cart"></i> <span>tambah ke cart</span></a>
+                                    <a href="#" id="cart-phone"><i data-feather="phone"></i> <span>kontak penjual</span></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
                      </div>
                   </div>
-               </div>
-            </template> -->
-
-
-            <div class="product-card">
-               
-               <div class="product-image">
-                  <img src="img/products/sample_pot.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Pot Keramik</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae officiis molestias cum porro consequuntur quasi.</p>
-                  <div class="product-stars">
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 30000</span> 
-                     <span class="pre-discount"> IDR 55000</span>
-                  </div>
-               </div>
-            </div>
-            <div class="product-card">
-               
-               <div class="product-image">
-                  <img src="img/products/sample_tas_bambu.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Tas Anyaman Bambu</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, optio quisquam. Officiis quibusdam unde qui.</p>
-                  <div class="product-stars">
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 250000</span>
-                  </div>
-               </div>
-            </div>
-            <div class="product-card">
-               
-               <div class="product-image">
-                  <img src="img/products/sample_kain_tenun.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Kain Tenun</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto praesentium eveniet vero quam, deserunt quae?</p>
-                  <div class="product-stars">
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 75000</span>
-                  </div>
-               </div>
-            </div>
-            <div class="product-card">
-               <div class="product-icons" >
-                  <a href="#"><i data-feather="shopping-cart"></i></a>
-                  <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-               </div>
-               <div class="product-image">
-                  <img src="img/products/sample_patung_garuda.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Patung Garuda Kayu</h3>
-                  <p id="product-desc" style="display:none">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, itaque sed distinctio corrupti dolorem minus.</p>
-                  <div class="product-stars" >
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 2000000</span>
-                  </div>
-               </div>
-            </div>
-            <div class="product-card">
-               
-               <div class="product-image">
-                  <img src="img/products/sample_kalung_manik.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Kalung Manik-manik</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et delectus quis possimus labore, sapiente nulla.</p>
-                  <div class="product-stars">
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 19550</span>
-                  </div>
-               </div>
-            </div>
-            <div class="product-card">
-               
-               <div class="product-image">
-                  <img src="img/products/sample_akuarium.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Akuarium Kaca</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, sapiente assumenda cupiditate molestiae voluptatibus sint.</p>
-                  <div class="product-stars">
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 450000</span>
-                  </div>
-               </div>
-            </div>
+               </template>
+            </template>
          </div>
+         
 
          <!-- agri product row -->
          <div id="agri-product-row" class="row">
-            <div class="product-card">
-               
-               <div class="product-image">
-                  <img src="img/products/sample_bawang_merah.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Bawang Merah Brebes 1kg</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat magnam iure nam eius fuga incidunt?</p>
-                  <div class="product-stars" >
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
+            <template x-for="(item,index) in items" x-key="index">
+               <template x-if="item.type == 'agri-product'">
+                  <div class="product-card" 
+                     onclick="lastchild = this.lastElementChild;
+                     grandchild = lastchild.firstElementChild;
+                     if (grandchild.style.display != 'none') {
+                     lastchild.style.display ='flex';
+                     } else {
+                     grandchild.style.display = 'flex';
+                     };" >
+                     <div class="product-image">
+                        <img :src="`img/products/${item.img}`" :alt="item.name">
+                     </div>
+                     <div class="product-content">
+                        <h3 id="product-name" x-text="item.name" ></h3>
+                        <p id="product-desc" x-text="item.desc" style="display:none"></p>
+                        <div class="product-stars" >                        
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                        </div>
+                        <div id="product-price" class="notranslate" >
+                           <span x-text="rupiah(item.price)"></span> 
+                        </div>
+                     </div>
+                     <div class="modal" id="`modal-box-${item.id}`" style='display:none;'>
+                        <div class="modal-container">
+                           <span class="close-icon"
+                              onclick="parent = this.parentElement;
+                              grandparent = parent.parentElement;
+                              parent.style.display='none';
+                              grandparent.style.display='none';">
+                           <i data-feather="x"></i>
+                           </span>
+                           <div class="modal-content">
+                              <img :src="`img/products/${item.img}`" :alt="item.name">
+                              <div class="modal-wrap">
+                                 <h3 id="product-name" x-text="item.name" ></h3>
+                                 <p id="product-desc" x-text="item.desc"></p>
+                                 <div class="product-stars" >
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                 </div>
+                                 <div id="product-price" class="notranslate" >
+                                    <span x-text="rupiah(item.price)"></span> 
+                                 </div>
+                                 <div>
+                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><i data-feather="shopping-cart"></i> <span>tambah ke cart</span></a>
+                                    <a href="#" id="cart-phone"><i data-feather="phone"></i> <span>kontak penjual</span></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
                   </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 28000</span> 
-                  </div>
-               </div>
-            </div>
-            <div class="product-card">
-               
-               <div class="product-image">
-                  <img src="img/products/sample_beras_lampung.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Beras Medium Lampung 1kg</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique, consequatur. Deserunt molestiae iste mollitia explicabo.</p>
-                  <div class="product-stars">
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 13600</span>
-                  </div>
-               </div>
-            </div>
-            <div class="product-card">
-               
-               <div class="product-image">
-                  <img src="img/products/sample_gabah_cianjur.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Gabah Cianjur 1kg</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti excepturi labore eos placeat hic ut!</p>
-                  <div class="product-stars">
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 7000</span>
-                  </div>
-               </div>
-            </div>
-            <div class="product-card">
-               <div class="product-icons" >
-                  <a href="#"><i data-feather="shopping-cart"></i></a>
-                  <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-               </div>
-               <div class="product-image">
-                  <img src="img/products/sample_gabah_grobogan.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Gabah Grobogan 1kg</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat cupiditate dignissimos magnam? Ullam, minima voluptatem!</p>
-                  <div class="product-stars" >
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 7800</span>
-                  </div>
-               </div>
-            </div>
-            <div class="product-card">
-               
-               <div class="product-image">
-                  <img src="img/products/sample_gabah_lampung.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Gabah Lampung 1kg</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error eos, ab autem accusantium id assumenda.</p>
-                  <div class="product-stars">
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 8000</span>
-                  </div>
-               </div>
-            </div>
-            <div class="product-card">
-               <div class="product-icons" >
-                  <a href="#"><i data-feather="shopping-cart"></i></a>
-                  <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-               </div>
-               <div class="product-image">
-                  <img src="img/products/sample_jagung_lampung.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Jagung Lampung 1kg</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, impedit! Natus labore obcaecati nesciunt architecto!</p>
-                  <div class="product-stars">
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 5100</span>
-                  </div>
-               </div>
-            </div>
-            <div class="product-card">
-               <div class="product-image">
-                  <img src="img/products/sample_jagung_tasikmalaya.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Jagung Tasikmalaya 1kg</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eaque veritatis blanditiis id aut tempora!</p>
-                  <div class="product-stars">
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 4600</span>
-                  </div>
-               </div>
-            </div>
-            <div class="product-card">
-               
-               <div class="product-image">
-                  <img src="img/products/sample_kakao_kendari.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Kakao Kendari 1kg</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut in sed nemo doloribus, dolorem nostrum!</p>
-                  <div class="product-stars">
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 54000</span>
-                  </div>
-               </div>
-            </div>
+               </template>
+            </template>
          </div>
 
          <!-- sea product row -->
          <div id="sea-product-row" class="row">
-            <div class="product-card">
-               
-               <div class="product-image">
-                  <img src="img/products/sample_ikan_tuna.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Ikan Tuna 1kg</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus reprehenderit dicta error quasi sed quod.</p>
-                  <div class="product-stars" >
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
+            
+            <template x-for="(item,index) in items" x-key="index">
+               <template x-if="item.type == 'sea-product'">
+                  <div class="product-card" 
+                     onclick="lastchild = this.lastElementChild;
+                     grandchild = lastchild.firstElementChild;
+                     if (grandchild.style.display != 'none') {
+                     lastchild.style.display ='flex';
+                     } else {
+                     grandchild.style.display = 'flex';
+                     };" >
+                     <div class="product-image">
+                        <img :src="`img/products/${item.img}`" :alt="item.name">
+                     </div>
+                     <div class="product-content">
+                        <h3 id="product-name" x-text="item.name" ></h3>
+                        <p id="product-desc" x-text="item.desc" style="display:none"></p>
+                        <div class="product-stars" >                        
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                        </div>
+                        <div id="product-price" class="notranslate" >
+                           <span x-text="rupiah(item.price)"></span> 
+                        </div>
+                     </div>
+                     <div class="modal" id="`modal-box-${item.id}`" style='display:none;'>
+                        <div class="modal-container">
+                           <span class="close-icon"
+                              onclick="parent = this.parentElement;
+                              grandparent = parent.parentElement;
+                              parent.style.display='none';
+                              grandparent.style.display='none';">
+                           <i data-feather="x"></i>
+                           </span>
+                           <div class="modal-content">
+                              <img :src="`img/products/${item.img}`" :alt="item.name">
+                              <div class="modal-wrap">
+                                 <h3 id="product-name" x-text="item.name" ></h3>
+                                 <p id="product-desc" x-text="item.desc"></p>
+                                 <div class="product-stars" >
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                 </div>
+                                 <div id="product-price" class="notranslate" >
+                                    <span x-text="rupiah(item.price)"></span> 
+                                 </div>
+                                 <div>
+                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><i data-feather="shopping-cart"></i> <span>tambah ke cart</span></a>
+                                    <a href="#" id="cart-phone"><i data-feather="phone"></i> <span>kontak penjual</span></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
                   </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 15000</span> 
-                  </div>
-               </div>
-            </div>
-            <div class="product-card">
-               
-               <div class="product-image">
-                  <img src="img/products/sample_lobster.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Lobster Laut Frozen 1Kg</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, quo neque doloremque quod quibusdam corrupti!</p>
-                  <div class="product-stars">
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 95000</span>
-                  </div>
-               </div>
-            </div>
+               </template>
+            </template>
          </div>
+
+         
 
          <!-- mine product row -->
          <div id="mine-product-row" class="row">
-            <div class="product-card">
-               
-               <div class="product-image">
-                  <img src="img/products/sample_batu_bara.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Batu Bara 1kg</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, commodi ex reprehenderit voluptate asperiores error.</p>
-                  <div class="product-stars" >
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
+            <template x-for="(item,index) in items" x-key="index">
+               <template x-if="item.type == 'mine-product'">
+                  <div class="product-card" 
+                     onclick="lastchild = this.lastElementChild;
+                     grandchild = lastchild.firstElementChild;
+                     if (grandchild.style.display != 'none') {
+                     lastchild.style.display ='flex';
+                     } else {
+                     grandchild.style.display = 'flex';
+                     };" >
+                     <div class="product-image">
+                        <img :src="`img/products/${item.img}`" :alt="item.name">
+                     </div>
+                     <div class="product-content">
+                        <h3 id="product-name" x-text="item.name" ></h3>
+                        <p id="product-desc" x-text="item.desc" style="display:none"></p>
+                        <div class="product-stars" >                        
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                           <i data-feather="star" class="star-full" ></i>
+                        </div>
+                        <div id="product-price" class="notranslate" >
+                           <span x-text="rupiah(item.price)"></span> 
+                        </div>
+                     </div>
+                     <div class="modal" id="`modal-box-${item.id}`" style='display:none;'>
+                        <div class="modal-container">
+                           <span class="close-icon"
+                              onclick="parent = this.parentElement;
+                              grandparent = parent.parentElement;
+                              parent.style.display='none';
+                              grandparent.style.display='none';">
+                           <i data-feather="x"></i>
+                           </span>
+                           <div class="modal-content">
+                              <img :src="`img/products/${item.img}`" :alt="item.name">
+                              <div class="modal-wrap">
+                                 <h3 id="product-name" x-text="item.name" ></h3>
+                                 <p id="product-desc" x-text="item.desc"></p>
+                                 <div class="product-stars" >
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                    <i data-feather="star" class="star-full" ></i>
+                                 </div>
+                                 <div id="product-price" class="notranslate" >
+                                    <span x-text="rupiah(item.price)"></span> 
+                                 </div>
+                                 <div>
+                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><i data-feather="shopping-cart"></i> <span>tambah ke cart</span></a>
+                                    <a href="#" id="cart-phone"><i data-feather="phone"></i> <span>kontak penjual</span></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
                   </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 60790</span> 
-                  </div>
-               </div>
-            </div>
-            <div class="product-card">
-               
-               <div class="product-image">
-                  <img src="img/products/sample_nikel.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Anoda Nikel 99% 1kg</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates praesentium expedita atque accusantium dolore similique?</p>
-                  <div class="product-stars" >
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 574900</span> 
-                  </div>
-               </div>
-            </div>
-            <div class="product-card">
-               
-               <div class="product-image">
-                  <img src="img/products/sample_plat_tembaga.jpg" >
-               </div>
-               <div class="product-content">
-                  <h3 id="product-name">Plat Tembaga Busbar 15mm x 60mm x 100mm</h3>
-                  <p id="product-desc" style="display:none">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore repellendus ducimus esse fuga ad voluptatum?</p>
-                  <div class="product-stars">
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 240000</span> 
-                  </div>
-               </div>
-            </div>
+               </template>
+            </template>
          </div>
       </section>
       <!-- Products Section end -->
@@ -790,39 +626,41 @@
 
 
       <!-- Modal Box Item Detail start -->
-      <div class="modal" id="item-detail-modal" style="display:none">
+      <!-- <div class="modal" id="item-detail-modal" x-data style="display:none">
          <div class="modal-container">
-            <a href="#" class="close-icon"><i data-feather="x"></i></a>
+            <a href="#" class="close-icon" @click-prevent="this.style.display=none"><i data-feather="x"></i></a>
             <div class="modal-content">
                <img id="product-img" src="">
                <div class="product-content">
                   <h3 id="product-name">Product Name</h3>
                   <p id="product-desc">Product Description</p>
-                  <div class="product-stars" style="display: none;">
-                     <i data-feather="star" class="star-full"></i>
-                     <i data-feather="star" class="star-full"></i>
-                     <i data-feather="star" class="star-full"></i>
-                     <i data-feather="star" class="star-full"></i>
+                  <div class="product-stars" >
+                     <i data-feather="star"></i>
+                     <i data-feather="star"></i>
+                     <i data-feather="star"></i>
+                     <i data-feather="star"></i>
                      <i data-feather="star"></i>
                   </div>
                   <div id="product-price" class="notranslate" >
                      <span>IDR 240000</span> 
                   </div>
-                  <span><a href="#" ><i data-feather="shopping-cart"></i> <span>tambah ke cart</span></a>
-                  <a href="#" ><i data-feather="phone"></i> <span>kontak penjual</span></a></span>
+                  <div>
+                     <a href="#" id="cart-button" @click-prevent="alert(0);$store.cart.add($activeitem);alert(1)"><i data-feather="shopping-cart"></i> <span>tambah ke cart</span></a>
+                     <a href="#" id="cart-phone"><i data-feather="phone"></i> <span>kontak penjual</span></a>
+                  </div>
                </div>
             </div>
          </div>
-      </div>
+      </div> -->
       <!-- Modal Box Item Detail end -->
-      <!-- Feather Icons -->
-      <script>
-         feather.replace();
-      </script>
       <!-- My Javascript -->
       <script src="js/script.js"></script>
       <!-- Google Translate -->
       <script src="js/gt.settings.js"></script>
       <script src="js/gt.min.js" data-gt-widget-id="43217984"></script>
+      <!-- Feather Icons -->
+      <script>
+         feather.replace();
+      </script>
    </body>
 </html>
