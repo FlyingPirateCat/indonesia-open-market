@@ -425,7 +425,7 @@ body {
     }
 
     .row .menu-card img:hover {
-      border: 8px solid black;
+      outline: 8px solid black;
     }
 
     .row .menu-card .menu-card-title {
@@ -456,7 +456,7 @@ body {
   }
 
   .product-card:hover {
-    border: 6px solid #666;
+    outline: 6px solid #666;
     background-color: rgba(38, 94, 163, 0.5);
   }
 
