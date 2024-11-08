@@ -225,8 +225,6 @@
          <h2 id="mine-product" style="display: none">Hasil Tambang</h2>
          <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo unde eum, ab fuga possimus iste.</p> -->
          
-         
-         <i data-feather="star" onload="feather.replace()" style="display: none;"></i>
          <!-- home product row -->
          <div id="home-product-row" class="row">
             <template x-for="(item,index) in items" x-key="index">
@@ -245,12 +243,7 @@
                      <div class="product-content">
                         <h3 id="product-name" x-text="item.name" ></h3>
                         <p id="product-desc" x-text="item.desc" style="display:none"></p>
-                        <div class="product-stars" >                        
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
+                        <div class="product-stars" > ✮✮✮✮☆
                         </div>
                         <div id="product-price" class="notranslate" >
                            <span x-text="rupiah(item.price)"></span> 
@@ -263,19 +256,14 @@
                               grandparent = parent.parentElement;
                               parent.style.display='none';
                               grandparent.style.display='none';">
-                           <i data-feather="x"></i>
+                              ✕
                            </span>
                            <div class="modal-content">
                               <img :src="`img/products/${item.img}`" :alt="item.name">
                               <div class="modal-wrap">
                                  <h3 id="product-name" x-text="item.name" ></h3>
                                  <p id="product-desc" x-text="item.desc"></p>
-                                 <div class="product-stars" >
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
+                                 <div class="product-stars" >✮✮✮✮☆
                                  </div>
                                  <div id="product-price" class="notranslate" >
                                     <span x-text="rupiah(item.price)"></span> 
@@ -298,6 +286,8 @@
          <div id="agri-product-row" class="row">
             <template x-for="(item,index) in items" x-key="index">
                <template x-if="item.type == 'agri-product'">
+                  
+                  
                   <div class="product-card" 
                      onclick="lastchild = this.lastElementChild;
                      grandchild = lastchild.firstElementChild;
@@ -312,12 +302,7 @@
                      <div class="product-content">
                         <h3 id="product-name" x-text="item.name" ></h3>
                         <p id="product-desc" x-text="item.desc" style="display:none"></p>
-                        <div class="product-stars" >                        
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
+                        <div class="product-stars" > ✮✮✮✮☆
                         </div>
                         <div id="product-price" class="notranslate" >
                            <span x-text="rupiah(item.price)"></span> 
@@ -330,19 +315,14 @@
                               grandparent = parent.parentElement;
                               parent.style.display='none';
                               grandparent.style.display='none';">
-                           <i data-feather="x"></i>
+                              ✕
                            </span>
                            <div class="modal-content">
                               <img :src="`img/products/${item.img}`" :alt="item.name">
                               <div class="modal-wrap">
                                  <h3 id="product-name" x-text="item.name" ></h3>
                                  <p id="product-desc" x-text="item.desc"></p>
-                                 <div class="product-stars" >
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
+                                 <div class="product-stars" >✮✮✮✮☆
                                  </div>
                                  <div id="product-price" class="notranslate" >
                                     <span x-text="rupiah(item.price)"></span> 
@@ -356,6 +336,8 @@
                         </div>
                      </div>
                   </div>
+
+
                </template>
             </template>
          </div>
@@ -365,6 +347,7 @@
             
             <template x-for="(item,index) in items" x-key="index">
                <template x-if="item.type == 'sea-product'">
+                  
                   <div class="product-card" 
                      onclick="lastchild = this.lastElementChild;
                      grandchild = lastchild.firstElementChild;
@@ -379,12 +362,7 @@
                      <div class="product-content">
                         <h3 id="product-name" x-text="item.name" ></h3>
                         <p id="product-desc" x-text="item.desc" style="display:none"></p>
-                        <div class="product-stars" >                        
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
+                        <div class="product-stars" > ✮✮✮✮☆
                         </div>
                         <div id="product-price" class="notranslate" >
                            <span x-text="rupiah(item.price)"></span> 
@@ -397,19 +375,14 @@
                               grandparent = parent.parentElement;
                               parent.style.display='none';
                               grandparent.style.display='none';">
-                           <i data-feather="x"></i>
+                              ✕
                            </span>
                            <div class="modal-content">
                               <img :src="`img/products/${item.img}`" :alt="item.name">
                               <div class="modal-wrap">
                                  <h3 id="product-name" x-text="item.name" ></h3>
                                  <p id="product-desc" x-text="item.desc"></p>
-                                 <div class="product-stars" >
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
+                                 <div class="product-stars" >✮✮✮✮☆
                                  </div>
                                  <div id="product-price" class="notranslate" >
                                     <span x-text="rupiah(item.price)"></span> 
@@ -433,6 +406,7 @@
          <div id="mine-product-row" class="row">
             <template x-for="(item,index) in items" x-key="index">
                <template x-if="item.type == 'mine-product'">
+                  
                   <div class="product-card" 
                      onclick="lastchild = this.lastElementChild;
                      grandchild = lastchild.firstElementChild;
@@ -447,12 +421,7 @@
                      <div class="product-content">
                         <h3 id="product-name" x-text="item.name" ></h3>
                         <p id="product-desc" x-text="item.desc" style="display:none"></p>
-                        <div class="product-stars" >                        
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
-                           <i data-feather="star" class="star-full" ></i>
+                        <div class="product-stars" > ✮✮✮✮☆
                         </div>
                         <div id="product-price" class="notranslate" >
                            <span x-text="rupiah(item.price)"></span> 
@@ -465,19 +434,14 @@
                               grandparent = parent.parentElement;
                               parent.style.display='none';
                               grandparent.style.display='none';">
-                           <i data-feather="x"></i>
+                              ✕
                            </span>
                            <div class="modal-content">
                               <img :src="`img/products/${item.img}`" :alt="item.name">
                               <div class="modal-wrap">
                                  <h3 id="product-name" x-text="item.name" ></h3>
                                  <p id="product-desc" x-text="item.desc"></p>
-                                 <div class="product-stars" >
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
-                                    <i data-feather="star" class="star-full" ></i>
+                                 <div class="product-stars" >✮✮✮✮☆
                                  </div>
                                  <div id="product-price" class="notranslate" >
                                     <span x-text="rupiah(item.price)"></span> 
