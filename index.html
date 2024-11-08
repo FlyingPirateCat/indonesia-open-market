@@ -32,7 +32,7 @@
 
       <!-- Navbar start -->
       <nav class="navbar" x-data>
-         <a href="#" class="navbar-logo"
+         <a href="#home" class="navbar-logo"
             >Indonesia<span style="color: black" oldstyle="color: var(--primary)"
             >OpenMarket</span
             >
@@ -269,8 +269,8 @@
                                     <span x-text="rupiah(item.price)"></span> 
                                  </div>
                                  <div>
-                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><i data-feather="shopping-cart"></i> <span>tambah ke cart</span></a>
-                                    <a href="#" id="cart-phone"><i data-feather="phone"></i> <span>kontak penjual</span></a>
+                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><span class="cart-icon">🛒</span><span>Tambah ke cart</span></a>
+                                    <a href="#" id="phone-button"><span class="phone-icon">✆</span><span>Kontak penjual</span></a>
                                  </div>
                               </div>
                            </div>
@@ -328,8 +328,8 @@
                                     <span x-text="rupiah(item.price)"></span> 
                                  </div>
                                  <div>
-                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><i data-feather="shopping-cart"></i> <span>tambah ke cart</span></a>
-                                    <a href="#" id="cart-phone"><i data-feather="phone"></i> <span>kontak penjual</span></a>
+                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><span class="cart-icon">🛒</span><span>Tambah ke cart</span></a>
+                                    <a href="#" id="phone-button"><span class="phone-icon">✆</span><span>Kontak penjual</span></a>
                                  </div>
                               </div>
                            </div>
@@ -349,12 +349,12 @@
                <template x-if="item.type == 'sea-product'">
                   
                   <div class="product-card" 
-                     onclick="lastchild = this.lastElementChild;
-                     grandchild = lastchild.firstElementChild;
+                     onclick="
+                     grandchild = (lastchild = this.lastElementChild).firstElementChild;
                      if (grandchild.style.display != 'none') {
-                     lastchild.style.display ='flex';
+                        lastchild.style.display ='flex';
                      } else {
-                     grandchild.style.display = 'flex';
+                        grandchild.style.display = 'flex';
                      };" >
                      <div class="product-image">
                         <img :src="`img/products/${item.img}`" :alt="item.name">
@@ -388,8 +388,8 @@
                                     <span x-text="rupiah(item.price)"></span> 
                                  </div>
                                  <div>
-                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><i data-feather="shopping-cart"></i> <span>tambah ke cart</span></a>
-                                    <a href="#" id="cart-phone"><i data-feather="phone"></i> <span>kontak penjual</span></a>
+                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><span class="cart-icon">🛒</span><span>Tambah ke cart</span></a>
+                                    <a href="#" id="phone-button"><span class="phone-icon">✆</span><span>Kontak penjual</span></a>
                                  </div>
                               </div>
                            </div>
@@ -447,8 +447,8 @@
                                     <span x-text="rupiah(item.price)"></span> 
                                  </div>
                                  <div>
-                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><i data-feather="shopping-cart"></i> <span>tambah ke cart</span></a>
-                                    <a href="#" id="cart-phone"><i data-feather="phone"></i> <span>kontak penjual</span></a>
+                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><span class="cart-icon">🛒</span><span>Tambah ke cart</span></a>
+                                    <a href="#" id="phone-button"><span class="phone-icon">✆</span><span>Kontak penjual</span></a>
                                  </div>
                               </div>
                            </div>
@@ -524,7 +524,7 @@
             <div class="row">
                <div class="about-img">
                   <img
-                     src="img/LBN.jpg"
+                     src="img/lambang.jpg"
                      style="max-width: 500px;max-height: 500px;  border: 2px solid gray; border-radius: 5%"
                      />
                </div>
@@ -589,34 +589,6 @@
       <!-- Footer end -->
 
 
-      <!-- Modal Box Item Detail start -->
-      <!-- <div class="modal" id="item-detail-modal" x-data style="display:none">
-         <div class="modal-container">
-            <a href="#" class="close-icon" @click-prevent="this.style.display=none"><i data-feather="x"></i></a>
-            <div class="modal-content">
-               <img id="product-img" src="">
-               <div class="product-content">
-                  <h3 id="product-name">Product Name</h3>
-                  <p id="product-desc">Product Description</p>
-                  <div class="product-stars" >
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                     <i data-feather="star"></i>
-                  </div>
-                  <div id="product-price" class="notranslate" >
-                     <span>IDR 240000</span> 
-                  </div>
-                  <div>
-                     <a href="#" id="cart-button" @click-prevent="alert(0);$store.cart.add($activeitem);alert(1)"><i data-feather="shopping-cart"></i> <span>tambah ke cart</span></a>
-                     <a href="#" id="cart-phone"><i data-feather="phone"></i> <span>kontak penjual</span></a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div> -->
-      <!-- Modal Box Item Detail end -->
       <!-- My Javascript -->
       <script src="js/script.js"></script>
       <!-- Google Translate -->

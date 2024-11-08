@@ -25,6 +25,16 @@ body {
   /* min-height: 2000px; */
 }
 
+.feathericons {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
 /* Navbar */
 .navbar {
   display: flex;
@@ -36,7 +46,7 @@ body {
   padding-left: 7%;
   padding-right: 7%;
   /* background-color: rgba(1, 1, 1, 0.8); */
-  background-color: rgba(240, 82, 9, 1);
+  background-color: var(--primary);
   border-bottom: 1px solid #513c28;
   position: fixed;
   top: 0;
@@ -328,12 +338,6 @@ body {
   line-height: 1.2;
   margin-bottom: 3rem;
 }
-
-/* .about .content-wrap h2 span, */
-/* .market .content-wrap h2 span, */
-/* .contact h2 span { */
-/* color: var(--primary); */
-/* } */
 
 .about,
 .contact {
@@ -679,8 +683,9 @@ footer .credit a {
     line-height: 1.8rem;
     margin-top: 1.2rem;
   }
+
   #cart-button,
-  #cart-phone {
+  #phone-button {
     display: inline-flex;
     gap: 1rem;
     width: 15rem;
@@ -689,6 +694,14 @@ footer .credit a {
     color: #fff;
     margin-top: 1rem;
     padding: 1rem 1.6rem;
+    padding-left: 1.2rem;
+  }
+
+  .cart-icon,
+  .phone-icon {
+    font-size: 1.7rem;
+    position: relative;
+    margin-top: -0.7rem;
   }
 
   .product-content .product-stars {

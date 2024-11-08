@@ -97,7 +97,7 @@ function displaychange2(p1, p2, p3, p4) {
 }
 
 // Modal Box
-const itemDetailModal = document.querySelector("#item-detail-modal");
+// const itemDetailModal = document.querySelector("#item-detail-modal");
 
 // function popupmodalbox(btn) {
 //   mdl = itemDetailModal;
@@ -126,32 +126,32 @@ const itemDetailModal = document.querySelector("#item-detail-modal");
 //   e.preventDefault();
 // }
 
-function popupmodalbox(item) {
-  itemDetailModal.style.display = "flex";
-  var item = item;
-  modalname = itemDetailModal.querySelector("#product-name");
-  modalname.innerHTML = item.name;
+// function popupmodalbox(item) {
+//   itemDetailModal.style.display = "flex";
+//   var item = item;
+//   modalname = itemDetailModal.querySelector("#product-name");
+//   modalname.innerHTML = item.name;
 
-  modalimg = itemDetailModal.querySelector("#product-img");
-  modalimg.src = "img/products/" + item.img;
+//   modalimg = itemDetailModal.querySelector("#product-img");
+//   modalimg.src = "img/products/" + item.img;
 
-  modaldesc = itemDetailModal.querySelector("#product-desc");
-  modaldesc.innerHTML = item.desc;
+//   modaldesc = itemDetailModal.querySelector("#product-desc");
+//   modaldesc.innerHTML = item.desc;
 
-  // modalstar = modalcontent.querySelector(".product-content > .product-stars");
-  // productstar = btn.querySelector(".product-content > .product-stars");
-  // modalstar.innerHTML = productstar.innerHTML;
+//   // modalstar = modalcontent.querySelector(".product-content > .product-stars");
+//   // productstar = btn.querySelector(".product-content > .product-stars");
+//   // modalstar.innerHTML = productstar.innerHTML;
 
-  modalprice = itemDetailModal.querySelector("#product-price");
-  modalprice.innerHTML = rupiah(item.price);
+//   modalprice = itemDetailModal.querySelector("#product-price");
+//   modalprice.innerHTML = rupiah(item.price);
 
-  // var handler = function (e) {
-  //   $store.cart.add(item);
-  //   e.preventDefault();
-  // };
+//   // var handler = function (e) {
+//   //   $store.cart.add(item);
+//   //   e.preventDefault();
+//   // };
 
-  e.preventDefault();
-}
+//   e.preventDefault();
+// }
 // itemDetailModal.querySelector("#cart-button").onclick = (e) => {
 //   alert($activeitem);
 //   alert($store.cart);

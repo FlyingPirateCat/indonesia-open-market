@@ -188,6 +188,7 @@ document.addEventListener("alpine:init", () => {
     items: [],
     total: 0,
     quantity: 0,
+
     add(newItem) {
       // cek apakah ada barang yang sama di cart
       const cartItem = this.items.find((item) => item.id === newItem.id);
