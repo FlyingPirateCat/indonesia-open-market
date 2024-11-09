@@ -18,12 +18,12 @@
       
       <!-- JQuery -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-     
-      <!-- My Style -->
-      <link rel="stylesheet" href="css/style.css" />
 
       <!-- Alpine JS -->
       <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+     
+      <!-- My Style -->
+      <link rel="stylesheet" href="css/style.css" />
 
       <!-- App -->
       <script src="src/app.js"></script>
@@ -64,6 +64,7 @@
                   <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
                </a>
                <a href="#" id="hamburger-menu"> <i data-feather="menu"></i> </a>
+               <a href="#" id="btnLogin-popup">Login</a>
             </div>
          </div>
 
@@ -251,7 +252,7 @@
                      </div>
                      <div class="modal" id="`modal-box-${item.id}`" style='display:none;'>
                         <div class="modal-container">
-                           <span class="close-icon"
+                           <span class="icon-close"
                               onclick="parent = this.parentElement;
                               grandparent = parent.parentElement;
                               parent.style.display='none';
@@ -269,8 +270,8 @@
                                     <span x-text="rupiah(item.price)"></span> 
                                  </div>
                                  <div>
-                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><span class="cart-icon">🛒</span><span>Tambah ke cart</span></a>
-                                    <a href="#" id="phone-button"><span class="phone-icon">✆</span><span>Kontak penjual</span></a>
+                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><span class="icon-cart">🛒</span><span>Tambah ke cart</span></a>
+                                    <a href="#" id="phone-button"><span class="icon-phone">✆</span><span>Kontak penjual</span></a>
                                  </div>
                               </div>
                            </div>
@@ -310,7 +311,7 @@
                      </div>
                      <div class="modal" id="`modal-box-${item.id}`" style='display:none;'>
                         <div class="modal-container">
-                           <span class="close-icon"
+                           <span class="icon-close"
                               onclick="parent = this.parentElement;
                               grandparent = parent.parentElement;
                               parent.style.display='none';
@@ -328,8 +329,8 @@
                                     <span x-text="rupiah(item.price)"></span> 
                                  </div>
                                  <div>
-                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><span class="cart-icon">🛒</span><span>Tambah ke cart</span></a>
-                                    <a href="#" id="phone-button"><span class="phone-icon">✆</span><span>Kontak penjual</span></a>
+                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><span class="icon-cart">🛒</span><span>Tambah ke cart</span></a>
+                                    <a href="#" id="phone-button"><span class="icon-phone">✆</span><span>Kontak penjual</span></a>
                                  </div>
                               </div>
                            </div>
@@ -370,7 +371,7 @@
                      </div>
                      <div class="modal" id="`modal-box-${item.id}`" style='display:none;'>
                         <div class="modal-container">
-                           <span class="close-icon"
+                           <span class="icon-close"
                               onclick="parent = this.parentElement;
                               grandparent = parent.parentElement;
                               parent.style.display='none';
@@ -388,8 +389,8 @@
                                     <span x-text="rupiah(item.price)"></span> 
                                  </div>
                                  <div>
-                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><span class="cart-icon">🛒</span><span>Tambah ke cart</span></a>
-                                    <a href="#" id="phone-button"><span class="phone-icon">✆</span><span>Kontak penjual</span></a>
+                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><span class="icon-cart">🛒</span><span>Tambah ke cart</span></a>
+                                    <a href="#" id="phone-button"><span class="icon-phone">✆</span><span>Kontak penjual</span></a>
                                  </div>
                               </div>
                            </div>
@@ -429,7 +430,7 @@
                      </div>
                      <div class="modal" id="`modal-box-${item.id}`" style='display:none;'>
                         <div class="modal-container">
-                           <span class="close-icon"
+                           <span class="icon-close"
                               onclick="parent = this.parentElement;
                               grandparent = parent.parentElement;
                               parent.style.display='none';
@@ -447,8 +448,8 @@
                                     <span x-text="rupiah(item.price)"></span> 
                                  </div>
                                  <div>
-                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><span class="cart-icon">🛒</span><span>Tambah ke cart</span></a>
-                                    <a href="#" id="phone-button"><span class="phone-icon">✆</span><span>Kontak penjual</span></a>
+                                    <a href="#" id="cart-button" @click.prevent="$store.cart.add(item)"><span class="icon-cart">🛒</span><span>Tambah ke cart</span></a>
+                                    <a href="#" id="phone-button"><span class="icon-phone">✆</span><span>Kontak penjual</span></a>
                                  </div>
                               </div>
                            </div>
@@ -477,11 +478,11 @@
                   </tr>
                   <tr style="height: 138.306px;">
                      <td style="width: 10px; height: 138.306px;">&nbsp;</td>
-                     <td style="width: 193.611px; height: 138.306px; text-align: center;"><span style="font-size: 2em;">⓹</span><br />Customer: Menerima Barang -&gt;<br /> Konfirmasi Penerimaan -&gt;<br />Memberikan Ulasan</td>
+                     <td style="width: 193.611px; height: 138.306px; text-align: center;"><span style="font-size: 2em;">⓹</span><br />Customer: Menerima Barang →<br /> Konfirmasi Penerimaan →<br />Memberikan Ulasan</td>
                      <td style="width: 92.0556px; text-align: center;"><span style="font-size: 2em;">&nbsp;</span></td>
-                     <td style="width: 215.556px; height: 138.306px; text-align: center;"><span style="font-size: 2em;">⓵</span> <br />Customer: Memesan Produk -&gt;<br />Melakukan Pembayaran -&gt;<br />Melakukan Konfirmasi</td>
+                     <td style="width: 215.556px; height: 138.306px; text-align: center;"><span style="font-size: 2em;">⓵</span> <br />Customer: Memesan Produk →<br />Melakukan Pembayaran →<br />Melakukan Konfirmasi</td>
                      <td style="width: 41.7639px; height: 138.306px;">&nbsp;</td>
-                     <td style="width: 223.903px; height: 138.306px; text-align: center;"><span style="font-size: 2em;">⓶</span><br />Indonesia Open Market: <br />Menerima Pembayaran -&gt;<br />Meneruskan Pesanan ke Penjual</td>
+                     <td style="width: 223.903px; height: 138.306px; text-align: center;"><span style="font-size: 2em;">⓶</span><br />Indonesia Open Market: <br />Menerima Pembayaran →<br />Meneruskan Pesanan ke Penjual</td>
                   </tr>
                   <tr style="height: 30px;">
                      <td style="width: 10px; height: 30px;">&nbsp;</td>
@@ -493,7 +494,7 @@
                   </tr>
                   <tr style="height: 154px;">
                      <td style="width: 10px; height: 154px;">&nbsp;</td>
-                     <td style="width: 285.667px; height: 154px; text-align: center;" colspan="2"><span style="font-size: 2em;">⓸</span><br />Perusahaan Pengiriman:<br /> PT. Pos Indonesia mengambil barang dari Penjual -&gt;<br />Mendata dan memproses pengiriman -&gt;<br />Mengirim ke rumah pelanggan.</td>
+                     <td style="width: 285.667px; height: 154px; text-align: center;" colspan="2"><span style="font-size: 2em;">⓸</span><br />Perusahaan Pengiriman:<br /> PT. Pos Indonesia mengambil barang →<br />Mendata dan memproses pengiriman →<br />Mengirim ke rumah pembeli.</td>
                      <td style="width: 215.556px; height: 154px;">&nbsp;</td>
                      <td style="width: 265.667px; height: 154px; text-align: center;" colspan="2"><span style="font-size: 2em;">⓷</span><br />Penjual: Menyiapkan barang pesanan untuk nanti siap diangkut oleh PT. Pos Indonesia selaku perusahaan pengiriman berpengalaman yang tergabung sebagai mitra kerja.</td>
                   </tr>
@@ -556,6 +557,80 @@
       </section>
 
 
+
+      <!-- Login Section Start -->
+       <section id="login" class="login" >
+      <div class="cover_box" >
+         <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span>
+         <div class="form-box login">
+           <h2>Login</h2>
+           <form action="#">
+             <div class="input-box">
+               <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+               <input type="email" required />
+               <label>Email</label>
+             </div>
+             <div class="input-box">
+               <span class="icon"
+                 ><ion-icon name="lock-closed-outline"></ion-icon
+               ></span>
+               <input type="password" required />
+               <label>Password</label>
+             </div>
+             <div class="remember-forgot">
+               <label><input type="checkbox" />Remember me</label>
+               <a href="#">Forgot password?</a>
+             </div>
+             <button type="submit" class="btn">Login</button>
+             <div class="login-register">
+               <p>
+                 Don't have an account?
+                 <a href="#" class="register-link">Register</a>
+               </p>
+             </div>
+           </form>
+         </div>
+         <!-- registration -->
+         <div class="form-box register">
+           <h2>Register</h2>
+           <form action="#">
+             <div class="input-box">
+               <span class="icon"
+                 ><ion-icon name="person-outline"></ion-icon
+               ></span>
+               <input type="text" required />
+               <label>Username</label>
+             </div>
+             <div class="input-box">
+               <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+               <input type="email" required />
+               <label>Email</label>
+             </div>
+             <div class="input-box">
+               <span class="icon"
+                 ><ion-icon name="lock-closed-outline"></ion-icon
+               ></span>
+               <input type="password" required />
+               <label>Password</label>
+             </div>
+   
+             <div class="remember-forgot">
+               <label><input type="checkbox" />Agree to terms & conditions</label>
+               <a href="#">Forgot password?</a>
+             </div>
+             <button type="submit" class="btn">Register</button>
+             <div class="login-register">
+               <p>
+                 Already have an account?
+                 <a href="#" class="login-link">Login</a>
+               </p>
+             </div>
+           </form>
+         </div>
+       </div>
+      </section>
+      <!-- Login Section End -->
+
       <!-- Footer start -->
       <footer>
          <div class="socials" style="display:none">
@@ -583,7 +658,7 @@
             </div>
          </div>
          <div class="credit">
-            Copyrighted by <a href="">PT Lintas Batas Nusantara</a> | &copy; 2024
+            Copyrighted by <a href="">PT Arie's Pura Graha</a> | &copy; 2024
          </div>
       </footer>
       <!-- Footer end -->
@@ -598,5 +673,13 @@
       <script>
          feather.replace();
       </script>
+      <script
+          type="module"
+          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+        ></script>
+      <script
+          nomodule
+          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+        ></script>
    </body>
 </html>
