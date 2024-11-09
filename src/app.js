@@ -52,7 +52,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 11,
         name: "Bawang Merah Brebes 1kg",
-        desc: "Lorem10",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, molestias!",
         type: "agri-product",
         img: "sample_bawang_merah.jpg",
         price: 28000,
@@ -60,7 +60,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 12,
         name: "Beras Medium Lampung 1kg",
-        desc: "Lorem10",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, veniam! ",
         type: "agri-product",
         img: "sample_beras_lampung.jpg",
         price: 13600,
@@ -68,7 +68,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 13,
         name: "Gabah Cianjur 1kg",
-        desc: "Lorem10",
+        desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, corporis! ",
         type: "agri-product",
         img: "sample_gabah_cianjur.jpg",
         price: 7000,
@@ -76,7 +76,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 14,
         name: "Gabah Grobogan 1kg",
-        desc: "Lorem10",
+        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, nihil. ",
         type: "agri-product",
         img: "sample_gabah_grobogan.jpg",
         price: 7800,
@@ -84,7 +84,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 15,
         name: "Gabah Lampung 1kg",
-        desc: "Lorem10",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, laboriosam ratione fugiat reiciendis mollitia similique. ",
         type: "agri-product",
         img: "sample_gabah_lampung.jpg",
         price: 8000,
@@ -92,7 +92,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 16,
         name: "Jagung Lampung",
-        desc: "Lorem10",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, rem pariatur? Quidem suscipit dolorum iste, quod amet atque! ",
         type: "agri-product",
         img: "sample_jagung_lampung.jpg",
         price: 5100,
@@ -100,7 +100,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 17,
         name: "Jagung Tasikmalaya 1kg",
-        desc: "Lorem10",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, fuga. ",
         type: "agri-product",
         img: "sample_jagung_tasikmalaya.jpg",
         price: 4600,
@@ -108,7 +108,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 18,
         name: "Kakao Kendari 1kg",
-        desc: "Lorem10",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, odio voluptatibus minus maiores ipsam suscipit ad beatae harum earum. ",
         type: "agri-product",
         img: "sample_kakao_kendari.jpg",
         price: 54000,
@@ -116,7 +116,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 21,
         name: "Ikan Tuna 1kg",
-        desc: "Lorem10",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor sapiente rerum ex culpa quasi numquam nisi tempore exercitationem placeat, nemo maiores quo laudantium labore omnis? ",
         type: "sea-product",
         img: "sample_ikan_tuna.jpg",
         price: 15000,
@@ -124,7 +124,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 22,
         name: "Lobster Laut Frozen 1Kg",
-        desc: "Lorem10",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ullam, quod unde nemo ratione quisquam, tempora eaque sapiente autem rerum repellat voluptates consequuntur ducimus nesciunt. ",
         type: "sea-product",
         img: "sample_lobster.jpg",
         price: 95000,
@@ -133,7 +133,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 23,
         name: "Cumi Sotong Kering 1Kg",
-        desc: "Lorem10",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam dolor necessitatibus assumenda sequi error vitae quod laudantium nostrum nisi! Corporis ad maiores animi officia! Velit corrupti repellendus laudantium deserunt ab! ",
         type: "sea-product",
         img: "sample_cumi.jpg",
         price: 65000,
@@ -142,7 +142,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 24,
         name: "Kerang Tahu Hidup 1Kg",
-        desc: "Lorem10",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis quos deleniti explicabo. Ipsa maxime culpa delectus, quam laboriosam modi velit, soluta perferendis cum, optio neque. Aliquam ullam maiores error et! ",
         type: "sea-product",
         img: "sample_kerang_tahu.jpg",
         price: 22000,
@@ -150,7 +150,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 31,
         name: "Batu Bara 1kg",
-        desc: "Lorem10",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab quibusdam dolores dicta reprehenderit ad beatae nisi veniam quaerat tempore! ",
         type: "mine-product",
         img: "sample_batu_bara.jpg",
         price: 60790,
@@ -158,7 +158,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 32,
         name: "Anoda Nikel 99% 1Kg",
-        desc: "Lorem10",
+        desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam quam architecto et ipsam sed nulla a eum ut aut alias? ",
         type: "mine-product",
         img: "sample_nikel.jpg",
         price: 574900,
@@ -167,7 +167,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 33,
         name: "Plat Tembaga Busbar 15mm x 60mm x 100mm",
-        desc: "Lorem10",
+        desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit dolorum nostrum ad deserunt enim doloremque illum, esse voluptatem architecto tempore inventore veniam iste accusamus maiores a labore rem eum voluptatibus. ",
         type: "mine-product",
         img: "sample_plat_tembaga.jpg",
         price: 240000,
@@ -176,7 +176,7 @@ document.addEventListener("alpine:init", () => {
       {
         id: 34,
         name: "Timah Lunak Batangan  1Kg",
-        desc: "Lorem10",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur maxime eius officiis aliquid expedita impedit, laborum deserunt nihil voluptatem ab. ",
         type: "mine-product",
         img: "sample_timah.jpg",
         price: 40000,
